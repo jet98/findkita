@@ -52,6 +52,11 @@ td{
   width: 50px;
 }
 
+#nav-forum-text{
+  cursor: pointer;
+  color: #FF0000;
+}
+
 .create-thread-button{
   padding: 1em;
   text-align: right;

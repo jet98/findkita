@@ -12,6 +12,8 @@
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_home.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
+	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
+	<script type="text/javascript" src="../js/amazon/search_results.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -45,7 +47,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title"></h4>
+						<h4 class="modal-title">Create Thread</h4>
 					</div>
 					<div class="modal-body user-modal">
 						<label>Title</label>
@@ -60,6 +62,30 @@
 				</div>
 			</div>
 		</div>
+		<!-- reply post modal -->
+		<div id="replyPost" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Reply</h4>
+					</div>
+					<div class="modal-body user-modal">
+						<div id="quote">
+							<label>Quote</label>
+							<p id="quote-post-content"></p>
+						</div>
+						<label>Post</label>
+						<textarea class="form-control" rows="5" id="reply-post-content" placeholder="Enter Post"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary reply-post-submit-button" data-dismiss="modal">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- topics list -->
 		<div class="container forum-topics">
 			<div class="container">
@@ -70,7 +96,7 @@
 				<button class="btn btn-secondary" data-toggle="modal" data-target="#createThread" type="submit">Create Thread</button>
 			</div>
 			<div id="nav-forum">
-				<a href="" id="nav-forum-text"></a>
+				<span onmouseover="" id="nav-forum-text"></span>
 			</div>
 			<table class="table well" id="forum-topic-table">
 				<thead id="forum-topic-head">

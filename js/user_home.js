@@ -6,7 +6,6 @@ $(function(){
     type: 'GET',
     contentType: 'application/json',
     success: function(json){
-      console.log("post about me");
     },
     error: function(request, status, error) {
       console.log("error" + request.responseText);

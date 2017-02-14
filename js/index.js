@@ -2,8 +2,7 @@ $(function(){
   $('.login-submit-button').click(loginUser);
   $('.register-submit-button').click(registerUser);
   $('#home-logout-button').click(logoutUser);
-  $('.contact-message').click(sendMessage);
-  $('.search').click(querySearch);
+  getItems("../php/amazon/search.php?cmd=searchItems", "feature items", "#feature_items");
   $.ajax({
     url: '../php/index.php?cmd=currentSession',
     type: 'POST',
@@ -100,31 +99,24 @@ function logoutUser(){
   });
 }
 
-function sendMessage(){
-  var data = new FormData();
-  data.append('name', $('#contact-name').val());
-  data.append('email', $('#contact-email').val());
-  data.append('subject', $('#contact-subject').val());
-  data.append('message', $('#contact-message').val());
-
-  $.ajax({
-    url: '../php/contact.php?sendMessage',
-    type: 'POST',
-    contentType: false,
-    processData: false,
-    data: data,
-    success: function(json){
-      console.log(json + " message sent");
-    },
-    error: function(request, status, error) {
-      console.log("error" + request.responseText);
-    }
-  });
-}
-
-function querySearch(){
-  var keyword = $('#search').val();
-  window.location.assign('/seniorproject/view/results.html.php');
-  var query = "<?php include_once \"../php/amazon/querySearch.php\"; include_once \"../php/amazon/getItems.php\"; $response = querySearch(" + keyword + ");  getItems($response) ?>";
-  $('#results_list_keyword').html(query);
-}
+// function sendMessage(){
+//   var data = new FormData();
+//   data.append('name', $('#contact-name').val());
+//   data.append('email', $('#contact-email').val());
+//   data.append('subject', $('#contact-subject').val());
+//   data.append('message', $('#contact-message').val());
+//
+//   $.ajax({
+//     url: '../php/contact.php?sendMessage',
+//     type: 'POST',
+//     contentType: false,
+//     processData: false,
+//     data: data,
+//     success: function(json){
+//       console.log(json + " message sent");
+//     },
+//     error: function(request, status, error) {
+//       console.log("error " + request.responseText);
+//     }
+//   });
+// }

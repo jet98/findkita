@@ -1,14 +1,12 @@
-$(function(){
-  getItems();
-});
-
-function getItems(){
+function getItems(url, keyword, div){
   $.ajax({
-    url: '../php/amazon/getItems.php?cmd=getItems',
+    url: url,
     type: 'GET',
     contentType: 'application/json',
+    data: {
+      'keyword': keyword
+    },
     success: function(json){
-      // console.log(json);
       var addHtml = "";
       for(var i = 0; i < json.length; i++){
         addHtml += "<div class=\"col-sm-6 col-md-4\" id=\"item\">" +
@@ -26,7 +24,7 @@ function getItems(){
           "</div>" +
         "</div>";
       }
-      $('#feature_items').append(addHtml);
+      $(div).append(addHtml);
     },
     error: function(request, status, error) {
       console.log("error " + request.responseText);

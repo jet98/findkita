@@ -20,6 +20,10 @@ CREATE TABLE avatar(
   avatar_link varchar(900) NOT NULL,
   avatar_img blob NOT NULL
 );
+-- sets default image for all new users
+-- also change forumPost.php default value to 1
+INSERT INTO avatar(avatar_link, avatar_img)
+VALUES("defaultprofilepicture.png", "");
 
 CREATE TABLE questions(
   question_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -61,7 +65,7 @@ CREATE TABLE forum_topics(
   topic_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   topic varchar(255),
   topic_desc varchar(255),
-  post int DEFAULT 0
+  post int DEFAULT '0'
 );
 
 CREATE TABLE forum_thread(
@@ -71,6 +75,7 @@ CREATE TABLE forum_thread(
   post_date datetime,
   parent_id int,
   user_id int,
+  replies int DEFAULT '0',
   FOREIGN KEY (parent_id) REFERENCES forum_topics(topic_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

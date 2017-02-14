@@ -10,7 +10,7 @@ VALUES("Baby Shower", "An exciting start for everyone, Give ideas for the perfec
 INSERT INTO forum_topics(topic, topic_desc)
 VALUES("Birthday", "We all have one so why not help make someone's birthday special.");
 INSERT INTO forum_topics(topic, topic_desc)
-VALUES("congratulation", "Wheter it's small or big help show someone that they're recognized.");
+VALUES("Congratulation", "Wheter it's small or big help show someone that they're recognized.");
 INSERT INTO forum_topics(topic, topic_desc)
 VALUES("Get Well", "Emotional support is important when we're down, help someone's day get a bit brighter.");
 INSERT INTO forum_topics(topic, topic_desc)

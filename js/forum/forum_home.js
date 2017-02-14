@@ -1,7 +1,18 @@
+var topic = "";
+
 $(function(){
   $('.create-thread-button').hide();
   $('#nav-forum').hide();
   loadTopics();
+  $('#nav-forum-text').on('click',function(){
+    if($('#nav-forum-text').text() == "<< Threads"){
+      loadThread(topic);
+    }
+    else{
+      $('.create-thread-button').hide();
+      loadTopics();
+    }
+  });
 });
 
 function loadTopics(){
@@ -23,13 +34,13 @@ function loadTopics(){
       $('#forum_topic_body').html(addHtml);
     },
     error: function(request, status, error) {
-      console.log("error" + request.responseText);
+      console.log("error " + request.responseText);
     }
   });
 }
 
-$(document).on('click','#topic-title',function(){
-  var topic = $(this).text();
+$(document).on('click','#topic-title', function(){
+  topic = $(this).text();
   loadThread(topic);
 });
 
@@ -45,7 +56,6 @@ function loadThread(topicTitle){
       $('.create-thread-button').show();
       $('#nav-forum').show();
       $('#nav-forum-text').html("<< Topics");
-      $('#nav-forum-text').click(loadTopics);
       var addHead = "<tr><th id=\"thread-title-head\">Thread</th><th>Replies</th></tr>";
       $('#forum-topic-head').html(addHead);
       var addHtml = "";
@@ -53,7 +63,7 @@ function loadThread(topicTitle){
         addHtml += "<tr>" +
                      "<td><span onmouseover=\"\" style=\"cursor: pointer;\" id=\"thread-title\">" + json[i].thread_title + "</span>" +
                      "<p id=\"forum-user\">Created By: " + json[i].f_name + " on " + json[i].post_date.substring(0, 10) + "</p></td>" +
-                     "<td><span>99</span> replies</td>" +
+                     "<td><span>" + json[i].replies + "</span> replies</td>" +
                    "</tr>";
       }
       $('#forum_topic_body').html(addHtml);
@@ -64,7 +74,7 @@ function loadThread(topicTitle){
   });
 }
 
-$(document).on('click','#thread-title',function(){
+$(document).on('click','#thread-title', function(){
   var thread = $(this).text();
   loadPosts(thread);
 });
@@ -81,7 +91,6 @@ function loadPosts(threadTitle){
       $('.create-thread-button').hide();
       $('#nav-forum').show();
       $('#nav-forum-text').html("<< Threads");
-      $('#nav-forum-text').click(loadThread);
       var addHead = "<tr><th id=\"forum-post-author\">Author</th><th id=\"forum-post-post\">Posts</th><th id=\"forum-post-reply\">Reply</th></tr>";
       $('#forum-topic-head').html(addHead);
       var addHtml = "";
@@ -95,8 +104,8 @@ function loadPosts(threadTitle){
           "<td id=\"forum-post-post\">" + json[i].post + "</td>" +
           "<td id=\"forum-post-reply\">" +
             "<div class=\"create-post-button\">" +
-              "<a href=\"#\" title=\"Reply\">&#10226</a>" +
-              "<a href=\"#\" title=\"Quote\">&#10557</a>" +
+              "<span id=\"post-reply\" data-toggle=\"modal\" data-target=\"#replyPost\" type=\"submit\" onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"postReply()\" title=\"Reply\">&#10226</span>" +
+              // "<span id=\"post-reply-quote\" data-toggle=\"modal\" data-target=\"#replyPost\" type=\"submit\" onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"quoteReply()\" title=\"Quote\">&#10557</span>" +
             "</div>" +
           "</td>" +
         "</tr>";

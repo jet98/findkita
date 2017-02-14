@@ -1,41 +1,30 @@
 <?php
-  session_start();
-
-  require_once "../functions.php";
-  require_once "../db_login.php";
-  include_once "querySearch.php";
-
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
-  header('Access-Control-Allow-Origin: *');
-  header('Content-type: application/json');
-
-  $cmd = getValue('cmd');
-  if($cmd == 'getItems'){
-    $response = querySearch('feature items');
-    $response = getItems($response);
-    // print_r($response);
-    echo json_encode($response);
-  }
-
   function getItems($response){
     $query = array();
     foreach ($response->Items->Item as $item) {
-      $title = $item->ItemAttributes->Title;
-      if($title == null){
-        $title = "";
+      if(!empty($item->ItemAttributes->Title)){
+        $title = $item->ItemAttributes->Title;
       }
-      $price = $item->ItemAttributes->ListPrice->FormattedPrice;
-      if($price == null){
+      if($title == null){
+        $title = [""];
+      }
+      if(!empty($item->ItemAttributes->ListPrice->FormattedPrice)){
+        $price = $item->ItemAttributes->ListPrice->FormattedPrice;
+      }
+      else{
         $price = [""];
       }
-      $image = $item->ImageSets->ImageSet->MediumImage->URL;
-      if($image == null){
-        $image = "";
+      if(!empty($item->ImageSets->ImageSet->MediumImage->URL)){
+        $image = $item->ImageSets->ImageSet->MediumImage->URL;
       }
-      $link = $item->DetailPageURL;
+      if($image == null){
+        $image = [""];
+      }
+      if(!empty($item->DetailPageURL)){
+        $link = $item->DetailPageURL;
+      }
       if($link == null){
-        $link = "";
+        $link = [""];
       }
       array_push($query, [$title, $price, $image, $link]);
     }

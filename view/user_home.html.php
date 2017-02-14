@@ -10,6 +10,8 @@
 	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/user_home.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
+	<script type="text/javascript" src="../js/amazon/search_results.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -57,7 +59,7 @@
 				<h3 id="username">Username<span>'s Activity</span></h3>
 				<div id="users_profile_info">
 					<!-- shopping -->
-					<table class="table well" id="table_well">
+					<!-- <table class="table well" id="table_well">
 						<thead>
 								<tr>
 									<th id="user-table">Price</th>
@@ -70,7 +72,7 @@
 									<td id="user-table"><img id="shopping_image" src="http://placehold.it/150x150"/></td>
 								</tbody>
 						</thead>
-					</table>
+					</table> -->
 					<!-- post -->
 					<table class="table well" id="table_well">
 						<thead>

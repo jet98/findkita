@@ -11,6 +11,8 @@
 	<script type="text/javascript" src="../js/user_edit.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/upload.js"></script>
+	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
+	<script type="text/javascript" src="../js/amazon/search_results.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->

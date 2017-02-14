@@ -35,8 +35,21 @@
       $response[] = $row;
     }
     $stmt->close();
+    updateTopics($response);
 
     return $response;
+  }
+
+  function updateTopics($response){
+    global $mysqli;
+    foreach($response as $topic) {
+      $query = 'UPDATE forum_topics SET post = (SELECT count(thread) FROM forum_thread WHERE parent_id = ?) WHERE topic_id = ?';
+      $stmt = $mysqli->stmt_init();
+      $stmt->prepare($query) or die(mysqli_error($mysqli));
+      $stmt->bind_param('dd', $topic['topic_id'], $topic['topic_id']);
+      $stmt->execute();
+      $stmt->close();
+    }
   }
 
   $mysqli->close();

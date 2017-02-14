@@ -45,8 +45,21 @@
       $response[] = $row;
     }
     $stmt->close();
+    updateThread($response);
 
     return $response;
+  }
+
+  function updateThread($response){
+    global $mysqli;
+    foreach($response as $topic) {
+      $query = 'UPDATE forum_thread SET replies = (SELECT count(post) FROM forum_posts WHERE parent_id = ?) WHERE thread_id = ?';
+      $stmt = $mysqli->stmt_init();
+      $stmt->prepare($query) or die(mysqli_error($mysqli));
+      $stmt->bind_param('dd', $topic['thread_id'], $topic['thread_id']);
+      $stmt->execute();
+      $stmt->close();
+    }
   }
 
   function addThread($title, $post){
@@ -59,15 +72,30 @@
     $stmt->prepare($query) or die(mysqli_error($mysqli));
     $stmt->bind_param('ssss', $post, $topic, $user, $title);
     $stmt->execute();
-    $res = $stmt->get_result();
 
-    $query = 'INSERT INTO forum_posts(parent_id, user_id, avatar_id, post, post_date) VALUES((SELECT topic_id FROM forum_topics WHERE topic = ?), ?, ?, ?, NOW())';
+    $post_parent_id = getParent();
+
+    $query = 'INSERT INTO forum_posts(parent_id, user_id, avatar_id, post, post_date) VALUES(?, ?, ?, ?, NOW())';
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
-    $stmt->bind_param('ssss', $topic, $user, $avatar, $post);
+    $stmt->bind_param('ssss', $post_parent_id['thread_id'], $user, $avatar, $post);
+    $stmt->execute();
+    $stmt->close();
+  }
+
+  function getParent(){
+    global $mysqli;
+    $query = 'SELECT thread_id FROM forum_thread ORDER BY thread_id DESC LIMIT 1';
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
     $stmt->execute();
     $res = $stmt->get_result();
-    $stmt->close();
+    while ($row = $res->fetch_assoc())
+    {
+      $response = $row;
+    }
+
+    return $response;
   }
   $mysqli->close();
 ?>

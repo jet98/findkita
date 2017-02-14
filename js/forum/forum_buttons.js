@@ -1,5 +1,8 @@
+var quote = "";
+
 $(function(){
   $('.create-thread-submit-button').click(createThread);
+  $('.reply-post-submit-button').click(sendReply);
 });
 
 function createThread(){
@@ -16,7 +19,54 @@ function createThread(){
       location.reload();
     },
     error: function(request, status, error) {
-      console.log("error" + " " + request.responseText);
+      console.log("error " + request.responseText);
+    }
+  });
+}
+
+function postReply(){
+  $('#quote').hide();
+}
+
+// function quoteReply(quote){
+//   $('#quote').show();
+  // $('#post-reply-quote').on('click', function(){
+  //   quote = $('#forum-post-post').text();
+    // $('#quote-post-content').prepend(quote);
+  // });
+  // $.ajax({
+  //   url: '../php/forum/forumPost.php?cmd=quoteReply',
+  //   type: 'GET',
+  //   contentType: 'application/json',
+  //   data: {
+  //     'post': post,
+  //     'quote': quote
+  //   },
+  //   success: function(json){
+  //     console.log(json);
+  //   },
+  //   error: function(request, status, error) {
+  //     console.log("error " + request.responseText);
+  //   }
+  // });
+// }
+
+function sendReply(){
+  var post = $('#reply-post-content').val();
+  $.ajax({
+    url: '../php/forum/forumPost.php?cmd=postReply',
+    type: 'GET',
+    contentType: 'application/json',
+    data: {
+      'post': post,
+      'quote': quote
+    },
+    success: function(json){
+      loadPosts(json);
+      console.log("posted reply");
+    },
+    error: function(request, status, error) {
+      console.log("error " + request.responseText);
     }
   });
 }
