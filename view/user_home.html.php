@@ -8,7 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/tabletools/2.2.1/css/dataTables.tableTools.css">
-
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
@@ -92,6 +91,31 @@
 			</div>
 		</div>
 	</div>
+	<!-- div results from search -->
+	<div class="container" id="search_results_body">
+		<!-- seperate list by API -->
+		<div class="container" id="shopping_list">
+			<table class="table" id="full_width">
+				<thead>
+					<tr>
+						<th>Shop List</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="amazon">Amazon</td>
+					</tr>
+					<!-- <tr>
+						<td>Shop2</td>
+					</tr> -->
+				</tbody>
+			</table>
+		</div>
+		<!-- list of results -->
+		<div class="container well" id="results_list">
+		</div>
+	</div>
+	<!-- footer -->
 	<div class="footer">
 		<h5><a href="#" id="footer-contacts">Contact</a> Finding Kita</h5>
 	</div>

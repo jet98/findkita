@@ -9,13 +9,25 @@
   header('Content-type: application/json');
 
   function sendMessage(){
-    require_once "functions.php";
+    $email_from = $_POST['email'];
+    $user = explode("@", $email_from);
+    $domain = explode(".", $user[1]);
+    if(count($domain) > 1){
+      $TLD = $domain[1];
+    }
 
-    $name = getValue('name');
-    $email = getValue('email');
-    $subject = getValue('subject');
-    $message = getValue('message');
+    if(empty($user) || empty($domain) || empty($TLD)) {
+      echo json_encode('The email address is not valid.');
+    }
+    else{
+      $email_name = $_POST['name'];
+      $email_subject = $_POST['subject'];
+      $email_message = $_POST['message'];
+      $email_to = "myname@domain.com";
 
-    echo json_encode($name);
+      $headers = 'From: '. $email_to . "\r\n" . 'Reply-To: ' . $email_from;
+      // mail($email_to, $email_subject, $email_message, $headers);
+      echo json_encode($email_subject);
+    }
   }
 ?>

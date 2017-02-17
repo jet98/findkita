@@ -112,24 +112,30 @@ function getSearchResults(){
   getItems("../php/amazon/search.php?cmd=searchItems", keyword, "#results_list");
 }
 
-// function sendMessage(){
-//   var data = new FormData();
-//   data.append('name', $('#contact-name').val());
-//   data.append('email', $('#contact-email').val());
-//   data.append('subject', $('#contact-subject').val());
-//   data.append('message', $('#contact-message').val());
-//
-//   $.ajax({
-//     url: '../php/contact.php?sendMessage',
-//     type: 'POST',
-//     contentType: false,
-//     processData: false,
-//     data: data,
-//     success: function(json){
-//       console.log(json + " message sent");
-//     },
-//     error: function(request, status, error) {
-//       console.log("error " + request.responseText);
-//     }
-//   });
-// }
+function sendMessage(){
+  var data = new FormData();
+  data.append('name', $('#contact-name').val());
+  data.append('email', $('#contact-email').val());
+  data.append('subject', $('#contact-subject').val());
+  data.append('message', $('#contact-message').val());
+
+  $.ajax({
+    url: '../php/contact.php?sendMessage',
+    type: 'POST',
+    contentType: false,
+    processData: false,
+    data: data,
+    success: function(json){
+      if(json != "The email address is not valid."){
+        console.log(json + " message sent");
+        alert("Message has beed sent");
+      }
+      else{
+        alert(json);
+      }
+    },
+    error: function(request, status, error) {
+      console.log("error " + request.responseText);
+    }
+  });
+}

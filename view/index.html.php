@@ -132,6 +132,7 @@
 		<div class="container well" id="results_list">
 		</div>
 	</div>
+	<!-- footer -->
 	<div class="footer">
 		<!-- Footer Modal -->
 		<div id="footerModal" class="modal fade" role="dialog">
@@ -146,20 +147,20 @@
 						<label>Name</label>
 						<input class="form-control" type="text" id="contact-name" name="name" placeholder="Enter Name" /></br>
 						<label>Email</label>
-						<input class="form-control" type="text" id="email-name" name="email" placeholder="Enter Email" /></br>
+						<input class="form-control" type="text" id="contact-email" name="email" placeholder="Enter Email" /></br>
 						<label>Subject</label>
-						<input class="form-control" type="text" id="subject-name" name="subject" placeholder="Enter Subject" /></br>
+						<input class="form-control" type="text" id="contact-subject" name="subject" placeholder="Enter Subject" /></br>
 						<label>Message</label>
-						<textarea class="form-control" rows="3" type="text" id="message-name" name="message" placeholder="Enter Message"></textarea>
+						<textarea class="form-control" rows="3" type="text" id="contact-message" name="message" placeholder="Enter Message"></textarea>
 					</form>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-secondary contact-message" data-dismiss="modal">Send</button>
+						<button type="submit" class="btn btn-secondary contact-message" data-dismiss="modal" onclick="sendMessage()" >Send</button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<h5><a data-toggle="modal" data-target="#footerModal" id="footer-contacts">Contact</a> Finding Kita</h5>
+		<h5><span onmouseover="" style="color:#FF0000; cursor:pointer;" data-toggle="modal" data-target="#footerModal" id="footer-contacts">Contact</span> Finding Kita</h5>
 	</div>
 </body>
 </html>
