@@ -10,8 +10,9 @@
   $cmd = $_GET['cmd'];
   if($cmd == 'searchItems'){
     $keyword = $_GET['keyword'];
-    $keyword = querySearch($keyword);
-    $response = getItems($keyword);
+    $response = querySearch($keyword);
+    $response = getItems($response);
+    $_SESSION['search'] = $response;
     echo json_encode($response);
   }
 ?>

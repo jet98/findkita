@@ -5,8 +5,13 @@
 	<link rel="shortcut icon" type="image/png" href="../images/fav.png"/>
 	<title>Project Location North</title>
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/tabletools/2.2.1/css/dataTables.tableTools.css">
+
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/user_home.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
@@ -77,19 +82,11 @@
 					<table class="table well" id="table_well">
 						<thead>
 							<tr>
-								<th id="user-table">Latest Post</th>
-								<th id="user-table">Comment</th>
-								<th id="user-table">Date</th>
+								<th id="user-table-post">Latest Post</th>
+								<th id="user-table-comment">Comment</th>
+								<th id="user-table-date">Date</th>
 							</tr>
 						</thead>
-						<!-- remove later -->
-						<tbody>
-							<tr>
-								<td id="user-table">Anniversary</td>
-								<td id="user-table">this is an example of what your comment was for this post</td>
-								<td id="user-table">12-12-12</td>
-							</tr>
-						</tbody>
 					</table>
 				</div>
 			</div>

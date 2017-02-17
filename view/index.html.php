@@ -10,7 +10,7 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
-	<script type="text/javascript" src="../js/amazon/search_results.js"></script>
+	<script type="text/javascript" src="../js/amazon/feature_Items.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -90,36 +90,47 @@
 		</div>
 	</div>
 	<!-- main body -->
-	<div class="text-center" id="home-login">
-		<img src="../images/homelogo.png" />
+	<div id="main_body">
+		<div class="text-center" id="home-login">
+			<img src="../images/homelogo.png" />
+		</div>
+		<div class="text-center" id="home-login-buttons">
+			<h4 class="login_error"></h4>
+			<button class="btn btn-secondary login-btn" type="button" data-toggle="modal" data-target="#loginModal">Login</button>
+			<button class="btn btn-secondary register-btn" type="button" data-toggle="modal" data-target="#registerModal">Register</button>
+		</div>
+		<div class="container">
+			<h1>Make Your Search Easier</h1>
+			<h3>Let us make your gift search a bit easier. Whether it's to say 'thank you' of it's your 20th anniversary, <span style="color:#0009BB;">Find</span><span style="color:#FF0000;">Kita</span> can help you narrow down that perfect gift. Just by answering a few questions finding the perfect gift has never been easier.</h3>
+			</br>
+		</div>
+		<div class="container well" id="feature_items">
+			<h3>Feature Items</h3>
+		</div>
 	</div>
-	<div class="text-center" id="home-login-buttons">
-		<h4 class="login_error"></h4>
-		<button class="btn btn-secondary login-btn" type="button" data-toggle="modal" data-target="#loginModal">Login</button>
-		<button class="btn btn-secondary register-btn" type="button" data-toggle="modal" data-target="#registerModal">Register</button>
-	</div>
-	<div class="container">
-		<h1>This this that that</h1>
-		<h4>blah blah this would go here, a short paragraph about this this and that that.</h4>
-	</div>
-	<div class="container well" id="feature_items">
-		<h3>Feature Items</h3>
-
-		<!-- <div class="col-sm-6 col-md-4" id="item">
-			<div class="thumbnail">
-				<a href=""><img src="" alt="Generic placeholder thumbnail" style="height:200px"></a>
-			</div>
-			<div class="caption">
-				<a style="color:black" href=" "><h4 style="height:120px">title</h4></a>
-				<p>
-					<h4 id="float_left">price</h4>
-					<span class="a-button-inner" id="float_right">
-						<a onclick="">Buy Now</br><img src="http://webservices.amazon.com/scratchpad/assets/images/Amazon-Favicon-64x64.png" class="a-icon a-icon-shop-now"></a>
-					</span>
-				</p>
-			</div>
-		</div> -->
-
+	<!-- div results from search -->
+	<div class="container" id="search_results_body">
+		<!-- seperate list by API -->
+		<div class="container" id="shopping_list">
+			<table class="table" id="full_width">
+				<thead>
+					<tr>
+						<th>Shop List</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="amazon">Amazon</td>
+					</tr>
+					<!-- <tr>
+						<td>Shop2</td>
+					</tr> -->
+				</tbody>
+			</table>
+		</div>
+		<!-- list of results -->
+		<div class="container well" id="results_list">
+		</div>
 	</div>
 	<div class="footer">
 		<!-- Footer Modal -->

@@ -51,6 +51,5 @@
       $stmt->close();
     }
   }
-
   $mysqli->close();
 ?>

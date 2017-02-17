@@ -28,6 +28,10 @@
     $response = aboutMe($username, $password);
     echo json_encode($response);
   }
+  elseif($cmd == 'loadActivity'){
+    $response = loadActivity();
+    echo json_encode($response);
+  }
 
   function deleteProfile($username, $password){
     $response = array();
@@ -56,5 +60,21 @@
     return $response;
   }
 
+  function loadActivity(){
+    global $mysqli;
+    $user_id = $_SESSION['user'][0]['user_id'];
+    $response = array();
+    $query = 'SELECT forum_posts.*, fts.topic FROM forum_posts INNER JOIN forum_thread ft ON ft.thread_id = forum_posts.parent_id INNER JOIN forum_topics fts ON fts.topic_id = ft.parent_id WHERE forum_posts.user_id = ?';
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
+    $stmt->bind_param('s', $user_id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    while($row = $res->fetch_assoc()){
+      $response[] = $row;
+    }
+    $stmt->close();
+    return $response;
+  }
   $mysqli->close();
 ?>

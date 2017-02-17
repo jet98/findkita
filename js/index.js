@@ -1,8 +1,15 @@
+var keyword;
+
 $(function(){
   $('.login-submit-button').click(loginUser);
   $('.register-submit-button').click(registerUser);
   $('#home-logout-button').click(logoutUser);
-  getItems("../php/amazon/search.php?cmd=searchItems", "feature items", "#feature_items");
+  $('#main_body').show();
+  $('#search_results_body').hide();
+  $('.search').click(function(){
+    keyword = $('#search').val();
+    getSearchResults();
+  });
   $.ajax({
     url: '../php/index.php?cmd=currentSession',
     type: 'POST',
@@ -97,6 +104,12 @@ function logoutUser(){
       console.log("error" + request.responseText);
     }
   });
+}
+
+function getSearchResults(){
+  $('#search_results_body').show();
+  $('#main_body').hide();
+  getItems("../php/amazon/search.php?cmd=searchItems", keyword, "#results_list");
 }
 
 // function sendMessage(){

@@ -12,7 +12,7 @@
         $price = $item->ItemAttributes->ListPrice->FormattedPrice;
       }
       else{
-        $price = [""];
+        $price = ["Price not listed"];
       }
       if(!empty($item->ImageSets->ImageSet->MediumImage->URL)){
         $image = $item->ImageSets->ImageSet->MediumImage->URL;

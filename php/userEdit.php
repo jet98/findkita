@@ -64,6 +64,5 @@
     }
     return $response;
   }
-
   $mysqli->close();
 ?>

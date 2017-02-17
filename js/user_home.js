@@ -11,6 +11,7 @@ $(function(){
       console.log("error" + request.responseText);
     }
   });
+  loadActivity();
 });
 
 function deleteProfile(){
@@ -29,4 +30,28 @@ function deleteProfile(){
       }
     });
   }
+}
+
+function loadActivity(){
+  $.ajax({
+    url: '../php/userHome.php?cmd=loadActivity',
+    type: 'POST',
+    contentType: 'application/json',
+    success: function(json){
+      $('.table').dataTable({
+        paging: true,
+        bFilter: false,
+        data: json,
+        columns: [
+          { data: 'topic'},
+          { data: 'post' },
+          { data: 'post_date' }
+        ],
+      });
+        console.log(json);
+    },
+    error: function(request, status, error) {
+      console.log("error" + request.responseText);
+    }
+  });
 }

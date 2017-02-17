@@ -1,4 +1,5 @@
 function getItems(url, keyword, div){
+  $(div).html("");
   $.ajax({
     url: url,
     type: 'GET',
@@ -27,7 +28,7 @@ function getItems(url, keyword, div){
       $(div).append(addHtml);
     },
     error: function(request, status, error) {
-      console.log("error " + request.responseText);
+      console.log("error " + error.responseText);
     }
   });
 }
