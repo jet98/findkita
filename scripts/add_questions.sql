@@ -1,4 +1,4 @@
-USE finding_kita;
+USE find_kita;
 TRUNCATE TABLE questions;
 
 INSERT INTO questions(question, type)

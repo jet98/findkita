@@ -22,7 +22,7 @@ function deleteProfile(){
       contentType: 'application/json',
       success: function(json){
         console.log("account removed");
-        window.location.assign('/seniorproject/view/index.html.php');
+        window.location.assign('/findkita/view/index.html.php');
         logoutUser();
       },
       error: function(request, status, error) {

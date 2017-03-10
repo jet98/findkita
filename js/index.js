@@ -44,7 +44,7 @@ function loginUser(){
         $('.login_error').hide();
         $('#user-home-link').show();
         console.log(json);
-        window.location.assign('/seniorproject/view/user_home.html.php');
+        window.location.assign('/findkita/view/user_home.html.php');
       }
       else{
         $('.login_error').show();
@@ -75,7 +75,7 @@ function registerUser(){
         $('#home-logout-button').show();
         $('#user-home-link').show();
         console.log(json);
-        window.location.assign('/seniorproject/view/user_home.html.php');
+        window.location.assign('/findkita/view/user_home.html.php');
       }
       else if(!json){
         $('.login_error').show();
@@ -98,7 +98,7 @@ function logoutUser(){
       $('#home-logout-button').hide();
       $('#user-home-link').hide();
       console.log(json);
-      window.location.assign('/seniorproject/view/index.html.php');
+      window.location.assign('/findkita/view/index.html.php');
     },
     error: function(request, status, error) {
       console.log("error" + request.responseText);

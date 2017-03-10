@@ -1,4 +1,4 @@
-USE finding_kita;
+USE find_kita;
 TRUNCATE TABLE forum_topics;
 
 INSERT INTO forum_topics(topic, topic_desc)

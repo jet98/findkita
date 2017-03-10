@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS finding_kita;
-CREATE DATABASE finding_kita;
-USE finding_kita;
+DROP DATABASE IF EXISTS find_kita;
+CREATE DATABASE find_kita;
+USE find_kita;
 
 CREATE TABLE users(
   user_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,

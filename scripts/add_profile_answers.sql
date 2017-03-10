@@ -1,4 +1,4 @@
-USE finding_kita;
+USE find_kita;
 TRUNCATE TABLE profile_answers;
 
 INSERT INTO profile_answers(question_id, listed_answer)

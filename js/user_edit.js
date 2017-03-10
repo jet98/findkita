@@ -12,7 +12,7 @@ function saveEditProfile(){
       'about_me': $('#about_me').val()
     },
     success: function(json){
-        window.location.assign('/seniorproject/view/user_home.html.php');
+        window.location.assign('/findkita/view/user_home.html.php');
         console.log("about me updated");
     },
     error: function(request, status, error) {
@@ -33,7 +33,7 @@ function changePassword(){
     success: function(json){
       if(json == $('#current-password').val()){
         if($('#enter-new-password').val() == $('#confirm-new-password').val()){
-          window.location.assign('/seniorproject/view/user_home.html.php');
+          window.location.assign('/findkita/view/user_home.html.php');
           console.log("password successfully changed");
         }
         else{
