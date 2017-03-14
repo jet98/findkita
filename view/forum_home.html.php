@@ -13,7 +13,6 @@
 	<script type="text/javascript" src="../js/forum/forum_home.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
 	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
-	<script type="text/javascript" src="../js/amazon/search_results.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->

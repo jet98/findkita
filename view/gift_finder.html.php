@@ -10,7 +10,8 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
-	<script type="text/javascript" src="../js/amazon/search_results.js"></script>
+	<script type="text/javascript" src="../js/giftfind.js"></script>
+	<script type="text/javascript" src="../js/questions.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -40,12 +41,12 @@
 		<div class="well">
 			<!-- questionnaire  -->
 			<h3>Let's Personalize Your Search</h3>
-			<form class="form-horizontal">
-				<?php include_once "../php/questions.php"; loadProfileQuestions("questions", "profile_answers", "profile"); ?>
+			<form class="form-horizontal" id="giftfind_form">
+				<!-- location for gift finder profile questions -->
 				<div class="form-group">
 					<label class="col-md-3 control-label"></label>
 					<div class="col-md-8">
-						<button class="btn btn-secondary" onclick="location.href='results.html'" type="button">Search</button>
+						<button id="giftfind_profile_save_button" class="btn btn-secondary" onclick="location.href='results.html'" type="button">Search</button>
 					</div>
 				</div>
 			</form>

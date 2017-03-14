@@ -19,6 +19,7 @@ function saveEditProfile(){
       console.log("error" + request.responseText);
     }
   });
+  updateUserQuestions();
 }
 
 function changePassword(){
@@ -45,6 +46,20 @@ function changePassword(){
         window.alert("Current password incorrect");
         console.log("current password incorrect");
       }
+    },
+    error: function(request, status, error) {
+      console.log("error" + request.responseText);
+    }
+  });
+}
+
+function updateUserQuestions(){
+  $.ajax({
+    url: '../php/userEdit.php?cmd=updateUserQuestions',
+    type: 'POST',
+    contentType: 'application/json',
+    success: function(json){
+
     },
     error: function(request, status, error) {
       console.log("error" + request.responseText);

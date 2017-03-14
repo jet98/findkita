@@ -8,7 +8,7 @@ CREATE TABLE users(
   l_name varchar(25) NOT NULL,
   email varchar(50) NOT NULL UNIQUE,
   password varchar(100) NOT NULL,
-  avatar_id int,
+  avatar_id int DEFAULT 1,
   username varchar(50) NOT NULL UNIQUE,
   removed boolean DEFAULT false,
   about_me varchar(500) DEFAULT "About me...",
@@ -33,6 +33,8 @@ CREATE TABLE questions(
 
 CREATE TABLE user_questions(
   user_questions_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id int,
+  FOREIGN KEY (user_id) REFERENCES users(user_id),
   questions_id int,
   FOREIGN KEY (questions_id) REFERENCES questions(questions_id),
   answers_id int,
@@ -40,8 +42,8 @@ CREATE TABLE user_questions(
   points int
 );
 
-CREATE TABLE profile_questions(
-  profile_questions int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE gift_finder(
+  gift_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   question_id int,
   FOREIGN KEY (question_id) REFERENCES questions(question_id),
   answer_id int,
@@ -52,13 +54,15 @@ CREATE TABLE profile_questions(
 CREATE TABLE user_answers(
   answers_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   question_id int,
-  listed_answer varchar(500)
+  listed_answer varchar(500),
+  FOREIGN KEY (question_id) REFERENCES questions(question_id)
 );
 
 CREATE TABLE profile_answers(
   answers_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   question_id int,
-  listed_answer varchar(500)
+  listed_answer varchar(500),
+  FOREIGN KEY (question_id) REFERENCES questions(question_id)
 );
 
 CREATE TABLE forum_topics(

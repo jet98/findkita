@@ -31,6 +31,9 @@
     $resposne = changePassword($username, $password, $newPassword, $confirmPassword);
     echo json_encode($resposne);
   }
+  elseif($cmd -- 'updateUserQuestions'){
+    
+  }
 
   function saveEditProfile($username, $password, $aboutMe){
     global $mysqli;

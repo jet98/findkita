@@ -9,6 +9,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/user_edit.js"></script>
+	<script type="text/javascript" src="../js/questions.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/upload.js"></script>
 	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
@@ -115,12 +116,12 @@
 			</div>
 			<!-- questionnaire  -->
 			<h3>Let's Personalize Your Search</h3>
-			<form class="form-horizontal">
-				<?php include_once "../php/questions.php"; loadUserQuestions("questions", "user_answers", "user"); ?>
+			<form class="form-horizontal" id="user_form">
+				<!-- location for user profile questions -->
 				<div class="form-group">
 					<label class="col-md-3 control-label"></label>
 					<div class="col-md-8">
-						<button type="button" class="btn btn-secondary" onclick="location.href='user_home.html'">Save Profile</button>
+						<button id="user_profile_save_button" type="button" class="btn btn-secondary" onclick="location.href='user_home.html'">Save Profile</button>
 					</div>
 				</div>
 			</form>

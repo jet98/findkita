@@ -27,7 +27,7 @@ function uploadFile(){
       console.log("file was uploaded");
     },
     error: function(request, status, error) {
-      console.log("error" + " " + request.status + " " + request.error);
+      console.log("error " + request.status + " " + request.error);
     }
   });
 }
