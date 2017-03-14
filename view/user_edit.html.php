@@ -116,15 +116,15 @@
 			</div>
 			<!-- questionnaire  -->
 			<h3>Let's Personalize Your Search</h3>
-			<form class="form-horizontal" id="user_form">
+			<form class="form-horizontal" method="POST" enctype="text/plain" id="user_form">
 				<!-- location for user profile questions -->
-				<div class="form-group">
-					<label class="col-md-3 control-label"></label>
-					<div class="col-md-8">
-						<button id="user_profile_save_button" type="button" class="btn btn-secondary" onclick="location.href='user_home.html'">Save Profile</button>
-					</div>
-				</div>
 			</form>
+			<div class="form-group">
+				<label class="col-md-3 control-label"></label>
+				<div class="col-md-8">
+					<button id="user_profile_save_button" type="button" class="btn btn-secondary">Save Profile</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- div results from search -->
