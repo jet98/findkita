@@ -29,7 +29,7 @@
     $options = array();
     $options['Which gender are you?'] = $_POST['Whichgenderareyou?'];
     $options['What is your age?'] = $_POST['Whatisyourage?'];
-    $options['What is you favorite movie genre?'] = $_POST['Whatisyourfavoritecolor?'];
+    $options['What is your favorite color?'] = $_POST['Whatisyourfavoritecolor?'];
     $options['What is you favorite movie genre?'] = $_POST['Whatisyoufavoritemoviegenre?'];
     $options['If your life was a book what genre whould it be?'] = $_POST['Ifyourlifewasabookwhatgenrewhoulditbe?'];
     $options['Planning a night out? What would you want to do?'] = $_POST['Planninganightout?Whatwouldyouwanttodo?'];
@@ -98,9 +98,10 @@
     }
     $stmt->close();
 
-    $answers = "<option></option>";
+    $answers = "<option id=\"\" value=\"\"></option>";
     foreach($response as $answer){
-      $answers .= "<option name=\"" . $array['question'] . "\">" . $answer['listed_answer'] . "</option>";
+      $id = str_replace(" ", "", $answer['listed_answer']);
+      $answers .= "<option name=\"" . $array['question'] . "\" id=\"" . $id . "\" value=\"" . $answer['listed_answer'] . "\">" . $answer['listed_answer'] . "</option>";
     }
     return $answers;
   }
@@ -112,12 +113,23 @@
     $user = $_SESSION['user'][0]['user_id'];
     $q_id = getQuestionID($key);
     $a_id = getAnswerID($option);
-    $query = 'REPLACE INTO user_questions(user_id, questions_id, answers_id, points) VALUES(?, ?, ?, 1)';
-    $stmt = $mysqli->stmt_init();
-    $stmt->prepare($query) or die(mysqli_error($mysqli));
-    $stmt->bind_param('ddd', $user, $q_id, $a_id);
-    $stmt->execute();
-    $res = $stmt->get_result();
+    $query = mysqli_query($mysqli, 'SELECT count(user_id) FROM user_questions WHERE user_id = "$user"');
+    if($query->num_rows == 0){
+      $query = 'INSERT INTO user_questions(user_id, questions_id, answers_id, points) VALUES(?, ?, ?, 1)';
+      $stmt = $mysqli->stmt_init();
+      $stmt->prepare($query) or die(mysqli_error($mysqli));
+      $stmt->bind_param('ddd', $user, $q_id['question_id'], $a_id['answers_id']);
+      $stmt->execute();
+      $res = $stmt->get_result();
+    }
+    else{
+      $query = 'UPDATE user_questions SET answers_id = CASE WHEN answers_id IS NULL THEN ? ELSE ? END WHERE user_id = ? AND questions_id = ?';
+      $stmt = $mysqli->stmt_init();
+      $stmt->prepare($query) or die(mysqli_error($mysqli));
+      $stmt->bind_param('dddd', $a_id['answers_id'], $a_id['answers_id'], $user, $q_id['question_id']);
+      $stmt->execute();
+      $res = $stmt->get_result();
+    }
     $stmt->close();
   }
 
@@ -127,7 +139,7 @@
     $query = "SELECT question_id FROM questions WHERE question = ?";
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
-    $stmt->bind_param('d', $question);
+    $stmt->bind_param('s', $question);
     $stmt->execute();
     $res = $stmt->get_result();
     $response = $res->fetch_assoc();
@@ -140,10 +152,13 @@
     $query = "SELECT answers_id FROM user_answers WHERE listed_answer = ?";
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
-    $stmt->bind_param('d', $answer);
+    $stmt->bind_param('s', $answer);
     $stmt->execute();
     $res = $stmt->get_result();
     $response = $res->fetch_assoc();
+    if($response['answers_id'] == null){
+      $response['answers_id'] = 57;
+    }
     return $response;
   }
   $mysqli->close();

@@ -31,8 +31,9 @@
     $resposne = changePassword($username, $password, $newPassword, $confirmPassword);
     echo json_encode($resposne);
   }
-  elseif($cmd -- 'updateUserQuestions'){
-    
+  elseif($cmd == 'getSearchOptions'){
+    $response = getSearchOptions();
+    echo json_encode($response);
   }
 
   function saveEditProfile($username, $password, $aboutMe){
@@ -65,6 +66,23 @@
     else{
       $response = $_SESSION['user'][0]['password'];
     }
+    return $response;
+  }
+
+  function getSearchOptions(){
+    global $mysqli;
+    $response = array();
+    $user = $_SESSION['user'][0]['user_id'];
+    $query = 'SELECT ua.listed_answer FROM user_answers AS ua INNER JOIN user_questions uq ON uq.answers_id = ua.answers_id WHERE user_id = ?;';
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
+    $stmt->bind_param('d', $user);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    while($row = $res->fetch_assoc()){
+      $response[] = $row;
+    }
+    $stmt->close();
     return $response;
   }
   $mysqli->close();

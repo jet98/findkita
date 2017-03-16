@@ -58,17 +58,17 @@ VALUES(5, "Action and Adventure");
 INSERT INTO user_answers(question_id, listed_answer)
 VALUES(5, "Horror");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(6, "Let's stay in and just hang out");
+VALUES(6, "Let us stay in and just hang out");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(6, "Let's get dinner and a movie");
+VALUES(6, "Let us get dinner and a movie");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(6, "Let's get tickets to a play or a show");
+VALUES(6, "Let us get tickets to a play or a show");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(6, "Let's get tickets to a game");
+VALUES(6, "Let us get tickets to a game");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(6, "Let's party but not too late");
+VALUES(6, "Let us party but not too late");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(6, "Let's party until 4 am");
+VALUES(6, "Let us party until 4 am");
 INSERT INTO user_answers(question_id, listed_answer)
 VALUES(7, "Plan something at home");
 INSERT INTO user_answers(question_id, listed_answer)
@@ -113,3 +113,5 @@ INSERT INTO user_answers(question_id, listed_answer)
 VALUES(10, "Something I can have fun with");
 INSERT INTO user_answers(question_id, listed_answer)
 VALUES(10, "Clothes or accessories");
+INSERT INTO user_answers(question_id, listed_answer)
+VALUES(0, "");

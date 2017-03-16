@@ -52,17 +52,3 @@ function changePassword(){
     }
   });
 }
-
-function updateUserQuestions(){
-  $.ajax({
-    url: '../php/userEdit.php?cmd=updateUserQuestions',
-    type: 'POST',
-    contentType: 'application/json',
-    success: function(json){
-
-    },
-    error: function(request, status, error) {
-      console.log("error" + request.responseText);
-    }
-  });
-}

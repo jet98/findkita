@@ -3,6 +3,24 @@ $(function(){
   loadProfileQuestions();
   $('#user_profile_save_button').click(saveUserQuestions);
   // $('#giftfind_profile_save_button').click(loadProfileQuestions);
+  $.ajax({
+    url: '../php/userEdit.php?cmd=getSearchOptions',
+    type: 'POST',
+    contentType: 'application/json',
+    success: function(json){
+      console.log(json);
+      var index = 0;
+      $('select#user-select-option').each(function(){
+        console.log("option#" + json[index].listed_answer.replace(" ", ""));
+        var id = "option#" + json[index].listed_answer.replace(" ", "");
+        $(id).val(json[index].listed_answer).prop('selected', true);
+        index++;
+      });
+    },
+    error: function(request, status, error) {
+      console.log("error" + request.responseText);
+    }
+  });
 });
 
 function loadUserQuestions(){
@@ -58,24 +76,12 @@ function loadProfileQuestions(){
 }
 
 function saveUserQuestions(){
-  // var options = {};
   var index = 0;
   var data = new FormData($('#user_form')[0]);
   $('option:selected').each(function(){
-    // options[$('#' + index).text()] = $(this).val();
     data.append($('#' + index).text().replace(/\s/g, ''), $(this).val());
     index += 2;
   });
-  // for(option in options){
-  //   console.log(option);
-  //   console.log(options[option]);
-  //   console.log();
-  //   data.append(option, options[option]);
-  // }
-
-  // for (var pair of data.entries()){
-  //   console.log(pair[0]+ ', '+ pair[1]);
-  // }
 
   $.ajax({
     url: '../php/questions.php?cmd=saveUserQuestions',
