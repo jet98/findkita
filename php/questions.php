@@ -42,8 +42,14 @@
     }
     echo json_encode($options);
   }
-  elseif($cmd == 'saveProfileQuestions'){
-
+  elseif($cmd == 'getProfileGifts'){
+    $options = array();
+    $options['What gender is this gift for?'] = $_POST['Whatgenderisthisgiftfor?'];
+    $options['What age is this person?'] = $_POST['Whatageisthisperson?'];
+    $options['What do they do on their downtime?'] = $_POST['Whatdotheydoontheirdowntime?'];
+    $response = getProfileGifts($options);
+    print_r($response);
+    echo json_encode($response);
   }
 
   function loadUserQuestions(){
@@ -106,13 +112,12 @@
     return $answers;
   }
 
-  // this should update the table if user changes their answer
   function saveUserQuestions($key, $option){
     global $mysqli;
     $response = array();
     $user = $_SESSION['user'][0]['user_id'];
     $q_id = getQuestionID($key);
-    $a_id = getAnswerID($option);
+    $a_id = getAnswerID($option, 'user_answers');
     $query = mysqli_query($mysqli, 'SELECT count(user_id) FROM user_questions WHERE user_id = "$user"');
     if($query->num_rows == 0){
       $query = 'INSERT INTO user_questions(user_id, questions_id, answers_id, points) VALUES(?, ?, ?, 1)';
@@ -146,10 +151,10 @@
     return $response;
   }
 
-  function getAnswerID($answer){
+  function getAnswerID($answer, $table){
     global $mysqli;
     $response = "";
-    $query = "SELECT answers_id FROM user_answers WHERE listed_answer = ?";
+    $query = "SELECT answers_id FROM " . $table . " WHERE listed_answer = ?";
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
     $stmt->bind_param('s', $answer);
@@ -159,6 +164,22 @@
     if($response['answers_id'] == null){
       $response['answers_id'] = 57;
     }
+    return $response;
+  }
+
+  function getProfileGifts($options){
+    global $mysqli;
+    $response = "";
+    $answerA_id = getAnswerID($options['What gender is this gift for?'], 'profile_answers');
+    $answerB_id = getAnswerID($options['What age is this person?'], 'profile_answers');
+    $answerC_id = getAnswerID($options['What do they do on their downtime?'], 'profile_answers');
+    $query = "SELECT keyword FROM gift_finder WHERE answerA_id = ? AND answerB_id = ? AND answerC_id = ?";
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
+    $stmt->bind_param('ddd', $answerA_id['answers_id'], $answerB_id['answers_id'], $answerC_id['answers_id']);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $response = $res->fetch_assoc();
     return $response;
   }
   $mysqli->close();

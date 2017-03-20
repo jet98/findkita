@@ -34,7 +34,7 @@ VALUES(14, "I don't know how to describe them");
 INSERT INTO profile_answers(question_id, listed_answer)
 VALUES(14, "Puts others first");
 INSERT INTO profile_answers(question_id, listed_answer)
-VALUES(15, "Anniversay");
+VALUES(15, "Anniversary");
 INSERT INTO profile_answers(question_id, listed_answer)
 VALUES(15, "Wedding");
 INSERT INTO profile_answers(question_id, listed_answer)

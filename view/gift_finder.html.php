@@ -37,25 +37,25 @@
 		</div>
 	</div>
 	<!-- main body -->
-	<div class="container" id="main_body">
-		<div class="well">
+	<div id="main_body">
+		<div class="container well"> <!-- container can be removed if needed -->
 			<!-- questionnaire  -->
 			<h3>Let's Personalize Your Search</h3>
 			<form class="form-horizontal" id="giftfind_form">
 				<!-- location for gift finder profile questions -->
 				<div class="form-group">
 					<label class="col-md-3 control-label"></label>
-					<div class="col-md-8">
-						<button id="giftfind_profile_save_button" class="btn btn-secondary" onclick="location.href='results.html'" type="button">Search</button>
-					</div>
 				</div>
 			</form>
+			<div class="col-md-8">
+				<button id="giftfind_profile_save_button" class="btn btn-secondary" type="button">Search</button>
+			</div>
 		</div>
 	</div>
 	<!-- div results from search -->
 	<div class="container" id="search_results_body">
 		<!-- seperate list by API -->
-		<div class="container" id="shopping_list">
+		<!-- <div class="container" id="shopping_list">
 			<table class="table" id="full_width">
 				<thead>
 					<tr>
@@ -66,12 +66,12 @@
 					<tr>
 						<td id="amazon">Amazon</td>
 					</tr>
-					<!-- <tr>
+					<tr>
 						<td>Shop2</td>
-					</tr> -->
+					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div> -->
 		<!-- list of results -->
 		<div class="container well" id="results_list">
 		</div>

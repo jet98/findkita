@@ -44,10 +44,12 @@ CREATE TABLE user_questions(
 
 CREATE TABLE gift_finder(
   gift_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  question_id int,
-  FOREIGN KEY (question_id) REFERENCES questions(question_id),
-  answer_id int,
-  FOREIGN KEY (answer_id) REFERENCES profile_answers(answer_id),
+  answerA_id int,
+  answerB_id int,
+  answerC_id int,
+  FOREIGN KEY (answerA_id) REFERENCES profile_answers(answer_id),
+  FOREIGN KEY (answerB_id) REFERENCES profile_answers(answer_id),
+  FOREIGN KEY (answerC_id) REFERENCES profile_answers(answer_id),
   keyword varchar(25)
 );
 

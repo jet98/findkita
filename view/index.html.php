@@ -111,7 +111,7 @@
 	<!-- div results from search -->
 	<div class="container" id="search_results_body">
 		<!-- seperate list by API -->
-		<div class="container" id="shopping_list">
+		<!-- <div class="container" id="shopping_list">
 			<table class="table" id="full_width">
 				<thead>
 					<tr>
@@ -122,12 +122,12 @@
 					<tr>
 						<td id="amazon">Amazon</td>
 					</tr>
-					<!-- <tr>
+					<tr>
 						<td>Shop2</td>
-					</tr> -->
+					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div> -->
 		<!-- list of results -->
 		<div class="container well" id="results_list">
 		</div>
