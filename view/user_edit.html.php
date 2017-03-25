@@ -10,9 +10,11 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/user_edit.js"></script>
 	<script type="text/javascript" src="../js/questions.js"></script>
+	<script type="text/javascript" src="../js/userSavedQuestions.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/upload.js"></script>
 	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
+	<script type="text/javascript" src="../js/searchBox.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -31,7 +33,7 @@
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
 			<input class="form-control" id="search" type="text" placeholder="Search">
-			<button class="btn btn-secondary" type="submit">Search</button>
+			<button class="btn btn-secondary search" type="button">Search</button>
 		</form>
 		<div class="navbar-left" id="home-logout-button">
 			<button class="btn btn-secondary" type="button">Logout</button>
@@ -130,7 +132,7 @@
 	<!-- div results from search -->
 	<div class="container" id="search_results_body">
 		<!-- seperate list by API -->
-		<div class="container" id="shopping_list">
+		<!-- <div class="container" id="shopping_list">
 			<table class="table" id="full_width">
 				<thead>
 					<tr>
@@ -141,12 +143,12 @@
 					<tr>
 						<td id="amazon">Amazon</td>
 					</tr>
-					<!-- <tr>
+					<tr>
 						<td>Shop2</td>
-					</tr> -->
+					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div> -->
 		<!-- list of results -->
 		<div class="container well" id="results_list">
 		</div>

@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="../js/user_home.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
+	<script type="text/javascript" src="../js/searchBox.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -32,8 +33,8 @@
 			</li>
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
-			<input class="form-control" id="search" type="text" placeholder="Search" />
-			<button class="btn btn-secondary" type="submit">Search</button>
+			<input class="form-control" id="search" type="text" placeholder="Search">
+			<button class="btn btn-secondary search" type="button">Search</button>
 		</form>
 		<div class="navbar-left" id="home-logout-button">
 			<button class="btn btn-secondary" type="button">Logout</button>
@@ -61,21 +62,6 @@
 			<div class="container" id="full_width">
 				<h3 id="username">Username<span>'s Activity</span></h3>
 				<div id="users_profile_info">
-					<!-- shopping -->
-					<!-- <table class="table well" id="table_well">
-						<thead>
-								<tr>
-									<th id="user-table">Price</th>
-									<th id="user-table">Latest Purchase</th>
-									<th id="user-table">Image</th>
-								</tr>
-								<tbody>
-									<td id="user-table">$23.45</td>
-									<td id="user-table">Aposon Men's Digital Electronic Waterproof LED Sport Watch Casual Quartz Military Multifunction 12H/24H Time Back Light with Simple Design 164FT 50M Water Resistant Calendar Month Date Day -Black</td>
-									<td id="user-table"><img id="shopping_image" src="http://placehold.it/150x150"/></td>
-								</tbody>
-						</thead>
-					</table> -->
 					<!-- post -->
 					<table class="table well" id="table_well">
 						<thead>
@@ -93,7 +79,7 @@
 	<!-- div results from search -->
 	<div class="container" id="search_results_body">
 		<!-- seperate list by API -->
-		<div class="container" id="shopping_list">
+		<!-- <div class="container" id="shopping_list">
 			<table class="table" id="full_width">
 				<thead>
 					<tr>
@@ -104,12 +90,12 @@
 					<tr>
 						<td id="amazon">Amazon</td>
 					</tr>
-					<!-- <tr>
+					<tr>
 						<td>Shop2</td>
-					</tr> -->
+					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div> -->
 		<!-- list of results -->
 		<div class="container well" id="results_list">
 		</div>

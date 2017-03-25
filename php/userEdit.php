@@ -73,7 +73,7 @@
     global $mysqli;
     $response = array();
     $user = $_SESSION['user'][0]['user_id'];
-    $query = 'SELECT ua.listed_answer FROM user_answers AS ua INNER JOIN user_questions uq ON uq.answers_id = ua.answers_id WHERE user_id = ?;';
+    $query = 'SELECT ua.listed_answer FROM users, user_answers AS ua INNER JOIN user_questions uq ON uq.answers_id = ua.answers_id WHERE users.user_id = ?;';
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
     $stmt->bind_param('d', $user);

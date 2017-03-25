@@ -70,7 +70,7 @@
     $query = 'INSERT INTO forum_thread(thread, post_date, parent_id, user_id, thread_title) VALUES(?, NOW(), (SELECT topic_id FROM forum_topics WHERE topic = ?), ?, ?)';
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
-    $stmt->bind_param('ssss', $post, $topic, $user, $title);
+    $stmt->bind_param('ssds', $post, $topic, $user, $title);
     $stmt->execute();
 
     $post_parent_id = getParent();
@@ -78,7 +78,7 @@
     $query = 'INSERT INTO forum_posts(parent_id, user_id, avatar_id, post, post_date) VALUES(?, ?, ?, ?, NOW())';
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
-    $stmt->bind_param('ssss', $post_parent_id['thread_id'], $user, $avatar, $post);
+    $stmt->bind_param('ddds', $post_parent_id['thread_id'], $user, $avatar, $post);
     $stmt->execute();
     $stmt->close();
   }

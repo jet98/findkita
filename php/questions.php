@@ -48,7 +48,6 @@
     $options['What age is this person?'] = $_POST['Whatageisthisperson?'];
     $options['What do they do on their downtime?'] = $_POST['Whatdotheydoontheirdowntime?'];
     $response = getProfileGifts($options);
-    print_r($response);
     echo json_encode($response);
   }
 
@@ -96,7 +95,7 @@
     $query = "SELECT * FROM " . $answerTable . " WHERE question_id = ?";
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
-    $stmt->bind_param('s', $array['question_id']);
+    $stmt->bind_param('d', $array['question_id']);
     $stmt->execute();
     $res = $stmt->get_result();
     while($row = $res->fetch_assoc()){
@@ -119,7 +118,7 @@
     $q_id = getQuestionID($key);
     $a_id = getAnswerID($option, 'user_answers');
     $query = mysqli_query($mysqli, 'SELECT count(user_id) FROM user_questions WHERE user_id = "$user"');
-    if($query->num_rows == 0){
+    if($query->num_rows < 10){
       $query = 'INSERT INTO user_questions(user_id, questions_id, answers_id, points) VALUES(?, ?, ?, 1)';
       $stmt = $mysqli->stmt_init();
       $stmt->prepare($query) or die(mysqli_error($mysqli));

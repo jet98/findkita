@@ -10,8 +10,8 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
-	<script type="text/javascript" src="../js/giftfind.js"></script>
 	<script type="text/javascript" src="../js/questions.js"></script>
+	<script type="text/javascript" src="../js/searchBox.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -30,7 +30,7 @@
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
 			<input class="form-control" id="search" type="text" placeholder="Search">
-			<button class="btn btn-secondary" type="submit">Search</button>
+			<button class="btn btn-secondary search" type="button">Search</button>
 		</form>
 		<div class="navbar-left" id="home-logout-button">
 			<button class="btn btn-secondary" type="button">Logout</button>

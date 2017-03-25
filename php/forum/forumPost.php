@@ -60,7 +60,7 @@
       $avatar = $_SESSION['avatar']['avatar_id'];
     }
     else{
-      $avatar = 2; // this will need to change to 1
+      $avatar = 1;
     }
     $thread_id = getParent($thread);
     $query = 'INSERT INTO forum_posts(parent_id, user_id, avatar_id, post, post_date) VALUES(?, ?, ?, ?, NOW())';

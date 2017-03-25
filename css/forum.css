@@ -57,7 +57,7 @@ td{
   color: #FF0000;
 }
 
-.create-thread-button{
+.create-thread-button, .reply-post-button{
   padding: 1em;
   text-align: right;
 }

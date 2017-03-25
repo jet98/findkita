@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
 	<script type="text/javascript" src="../js/amazon/feature_Items.js"></script>
+	<script type="text/javascript" src="../js/searchBox.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->

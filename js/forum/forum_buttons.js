@@ -58,12 +58,11 @@ function sendReply(){
     type: 'GET',
     contentType: 'application/json',
     data: {
-      'post': post,
-      'quote': quote
+      'post': post
     },
     success: function(json){
       loadPosts(json);
-      console.log("posted reply");
+      console.log("posted reply " + json);
     },
     error: function(request, status, error) {
       console.log("error " + request.responseText);

@@ -38,7 +38,7 @@ function loadActivity(){
     type: 'POST',
     contentType: 'application/json',
     success: function(json){
-      $('.table').dataTable({
+      $('.table').DataTable({
         paging: true,
         bFilter: false,
         data: json,
@@ -48,7 +48,6 @@ function loadActivity(){
           { data: 'post_date' }
         ],
       });
-        console.log(json);
     },
     error: function(request, status, error) {
       console.log("error" + request.responseText);

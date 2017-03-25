@@ -92,7 +92,7 @@ CREATE TABLE forum_posts(
   user_id int,
   avatar_id int,
   post varchar(8000),
-  post_data datetime,
+  post_date datetime,
   FOREIGN KEY (parent_id) REFERENCES forum_thread(thread_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id),
   FOREIGN KEY (avatar_id) REFERENCES avatar(avatar_id)

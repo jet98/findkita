@@ -16,19 +16,19 @@ VALUES(2, "36-50");
 INSERT INTO user_answers(question_id, listed_answer)
 VALUES(2, "50+");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(3, "Red, the color of passion");
+VALUES(3, "Red the color of passion");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(3, "Yellow, the color of attention");
+VALUES(3, "Yellow the color of attention");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(3, "Orange, the color of creativity");
+VALUES(3, "Orange the color of creativity");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(3, "Green, the color of nature");
+VALUES(3, "Green the color of nature");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(3, "Blue, the color of serenity");
+VALUES(3, "Blue the color of serenity");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(3, "Black, the color of mystery");
+VALUES(3, "Black the color of mystery");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(3, "White, the color of faith");
+VALUES(3, "White the color of faith");
 INSERT INTO user_answers(question_id, listed_answer)
 VALUES(4, "Comedy");
 INSERT INTO user_answers(question_id, listed_answer)
@@ -106,7 +106,7 @@ VALUES(9, "Use it on bills");
 INSERT INTO user_answers(question_id, listed_answer)
 VALUES(10, "Anything I get is perfect");
 INSERT INTO user_answers(question_id, listed_answer)
-VALUES(10, "Something that I've always wanted");
+VALUES(10, "Something that I have always wanted");
 INSERT INTO user_answers(question_id, listed_answer)
 VALUES(10, "Something intimate or homemade");
 INSERT INTO user_answers(question_id, listed_answer)

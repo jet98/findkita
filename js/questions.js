@@ -1,27 +1,33 @@
+var keyword;
+
 $(function(){
   loadUserQuestions();
   loadProfileQuestions();
   $('#user_profile_save_button').click(saveUserQuestions);
-  $('#giftfind_profile_save_button').click(getProfileGifts);
-  // this is to save user edit search profile
-  // $.ajax({
-  //   url: '../php/userEdit.php?cmd=getSearchOptions',
-  //   type: 'POST',
-  //   contentType: 'application/json',
-  //   success: function(json){
-  //     console.log(json);
-  //     var index = 0;
-  //     $('select').each(function(){
-  //       console.log("option#" + json[index].listed_answer.replace(" ", ""));
-  //       var id = "option#" + json[index].listed_answer.replace(" ", "");
-  //       $(id).val(json[index].listed_answer).prop('selected', true);
-  //       index++;
-  //     });
-  //   },
-  //   error: function(request, status, error) {
-  //     console.log("error" + request.responseText);
-  //   }
-  // });
+  $('#giftfind_profile_save_button').click(function(){
+    var index = 0;
+    var data = new FormData($('#user_form')[0]);
+    $('option:selected').each(function(){
+      data.append($('#' + index).text().replace(/\s/g, ''), $(this).val());
+      index += 2;
+    });
+
+    var temp = "";
+    $.ajax({
+      url: '../php/questions.php?cmd=getProfileGifts',
+      type: 'POST',
+      data: data,
+      contentType: false,
+      processData: false,
+      success: function(json){
+        keyword = json['keyword'];
+        getProfileGifts();
+      },
+      error: function(request, status, error) {
+        console.log("error " + request.responseText);
+      }
+    });
+  });
 });
 
 function loadUserQuestions(){
@@ -100,27 +106,7 @@ function saveUserQuestions(){
 }
 
 function getProfileGifts(){
-  var index = 0;
-  var data = new FormData($('#user_form')[0]);
-  $('option:selected').each(function(){
-    data.append($('#' + index).text().replace(/\s/g, ''), $(this).val());
-    index += 2;
-  });
-
-  $.ajax({
-    url: '../php/questions.php?cmd=getProfileGifts',
-    type: 'POST',
-    data: data,
-    contentType: false,
-    processData: false,
-    success: function(json){
-      console.log(json);
-      $('#search_results_body').show();
-      $('#main_body').hide();
-      getItems("../php/amazon/search.php?cmd=searchItems", json['keyword'], "#results_list");
-    },
-    error: function(request, status, error) {
-      console.log("error " + request.responseText);
-    }
-  });
+  $('#search_results_body').show();
+  $('#main_body').hide();
+  getItems("../php/amazon/search.php?cmd=searchItems", keyword, "#results_list");
 }

@@ -2,6 +2,7 @@ var topic = "";
 
 $(function(){
   $('.create-thread-button').hide();
+  $('.reply-post-button').hide();
   $('#nav-forum').hide();
   loadTopics();
   $('#nav-forum-text').on('click',function(){
@@ -25,6 +26,7 @@ function loadTopics(){
       $('#forum-topic-head').html(addHead);
       var addHtml = "";
       $('#nav-forum').hide();
+      $('.reply-post-button').hide();
       for(var i = 0; i < json.length; i++){
         addHtml += "<tr>" +
                      "<td value=\"" + json[i].topic + "\" id=\"topic-row-value\"><span onmouseover=\"\" style=\"cursor: pointer;\" id=\"topic-title\">" + json[i].topic + "</span></br><p id=\"topic-theme\">" + json[i].topic_desc + "</p></td>" +
@@ -54,6 +56,7 @@ function loadThread(topicTitle){
     },
     success: function(json){
       $('.create-thread-button').show();
+      $('.reply-post-button').hide();
       $('#nav-forum').show();
       $('#nav-forum-text').html("<< Topics");
       var addHead = "<tr><th id=\"thread-title-head\">Thread</th><th>Replies</th></tr>";
@@ -88,7 +91,9 @@ function loadPosts(threadTitle){
       'threadTitle': threadTitle
     },
     success: function(json){
+      getPaging();
       $('.create-thread-button').hide();
+      $('.reply-post-button').show();
       $('#nav-forum').show();
       $('#nav-forum-text').html("<< Threads");
       var addHead = "<tr><th id=\"forum-post-author\">Author</th><th id=\"forum-post-post\">Posts</th><th id=\"forum-post-reply\">Reply</th></tr>";
@@ -105,7 +110,6 @@ function loadPosts(threadTitle){
           "<td id=\"forum-post-reply\">" +
             "<div class=\"create-post-button\">" +
               "<span id=\"post-reply\" data-toggle=\"modal\" data-target=\"#replyPost\" type=\"submit\" onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"postReply()\" title=\"Reply\">&#10226</span>" +
-              // "<span id=\"post-reply-quote\" data-toggle=\"modal\" data-target=\"#replyPost\" type=\"submit\" onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"quoteReply()\" title=\"Quote\">&#10557</span>" +
             "</div>" +
           "</td>" +
         "</tr>";
@@ -115,5 +119,13 @@ function loadPosts(threadTitle){
     error: function(request, status, error) {
       console.log("error " + request.responseText);
     }
+  });
+}
+
+function getPaging(){
+  $('.table').DataTable({
+    paging: true,
+    bFilter: false,
+    bLengthChange: false
   });
 }

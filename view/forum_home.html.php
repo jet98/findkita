@@ -6,13 +6,18 @@
 	<title>Project Location North</title>
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../css/forum.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/tabletools/2.2.1/css/dataTables.tableTools.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_home.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
 	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
+	<script type="text/javascript" src="../js/searchBox.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -31,7 +36,7 @@
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
 			<input class="form-control" id="search" type="text" placeholder="Search">
-			<button class="btn btn-secondary" type="submit">Search</button>
+			<button class="btn btn-secondary search" type="button">Search</button>
 		</form>
 		<div class="navbar-left" id="home-logout-button">
 			<button class="btn btn-secondary" type="button">Logout</button>
@@ -71,10 +76,10 @@
 						<h4 class="modal-title">Reply</h4>
 					</div>
 					<div class="modal-body user-modal">
-						<div id="quote">
+						<!-- <div id="quote">
 							<label>Quote</label>
 							<p id="quote-post-content"></p>
-						</div>
+						</div> -->
 						<label>Post</label>
 						<textarea class="form-control" rows="5" id="reply-post-content" placeholder="Enter Post"></textarea>
 					</div>
@@ -94,10 +99,13 @@
 			<div class="create-thread-button">
 				<button class="btn btn-secondary" data-toggle="modal" data-target="#createThread" type="submit">Create Thread</button>
 			</div>
+			<div class="reply-post-button">
+				<button class="btn btn-secondary" data-toggle="modal" data-target="#replyPost" type="submit">Reply</button>
+			</div>
 			<div id="nav-forum">
 				<span onmouseover="" id="nav-forum-text"></span>
 			</div>
-			<table class="table well" id="forum-topic-table">
+			<table class="table" id="forum-topic-table">
 				<thead id="forum-topic-head">
 				</thead>
 				<tbody id="forum_topic_body">
@@ -108,7 +116,7 @@
 	<!-- div results from search -->
 	<div class="container" id="search_results_body">
 		<!-- seperate list by API -->
-		<div class="container" id="shopping_list">
+		<!-- <div class="container" id="shopping_list">
 			<table class="table" id="full_width">
 				<thead>
 					<tr>
@@ -119,12 +127,12 @@
 					<tr>
 						<td id="amazon">Amazon</td>
 					</tr>
-					<!-- <tr>
+					<tr>
 						<td>Shop2</td>
-					</tr> -->
+					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div> -->
 		<!-- list of results -->
 		<div class="container well" id="results_list">
 		</div>
