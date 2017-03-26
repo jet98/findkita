@@ -12,7 +12,6 @@ $(function(){
       index += 2;
     });
 
-    var temp = "";
     $.ajax({
       url: '../php/questions.php?cmd=getProfileGifts',
       type: 'POST',

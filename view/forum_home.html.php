@@ -76,16 +76,32 @@
 						<h4 class="modal-title">Reply</h4>
 					</div>
 					<div class="modal-body user-modal">
-						<!-- <div id="quote">
-							<label>Quote</label>
-							<p id="quote-post-content"></p>
-						</div> -->
 						<label>Post</label>
 						<textarea class="form-control" rows="5" id="reply-post-content" placeholder="Enter Post"></textarea>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						<button type="button" class="btn btn-secondary reply-post-submit-button" data-dismiss="modal">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- reply post modal -->
+		<div id="quotePost" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Quote</h4>
+					</div>
+					<div class="modal-body user-modal">
+						<label>Post</label>
+						<textarea class="form-control" rows="5" id="quote-post-content" placeholder="Enter Post"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary quote-post-submit-button" data-dismiss="modal">Submit</button>
 					</div>
 				</div>
 			</div>

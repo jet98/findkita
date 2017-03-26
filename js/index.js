@@ -52,34 +52,40 @@ function loginUser(){
 }
 
 function registerUser(){
-  $.ajax({
-    url: '../php/index.php?cmd=registerUser',
-    type: 'GET',
-    contentType: 'application/json',
-    data: {
-      'firstname': $('.firstname').val(),
-      'lastname': $('.lastname').val(),
-      'username': $('.new-username').val(),
-      'email': $('.email').val(),
-      'password': $('.new-password').val()
-    },
-    success: function(json){
-      if(json.length > 0){
-        $('#home-login-buttons').hide();
-        $('#home-logout-button').show();
-        $('#user-home-link').show();
-        console.log(json);
-        window.location.assign('/findkita/view/user_home.html.php');
+  $('.login_error').hide();
+  if($('.new-password').val() != $('.confirm-password').val()){
+    $('.login_error').show();
+    $('.login_error').html("Passwords do not match");
+  }
+  else{
+    $.ajax({
+      url: '../php/index.php?cmd=registerUser',
+      type: 'GET',
+      contentType: 'application/json',
+      data: {
+        'firstname': $('.firstname').val(),
+        'lastname': $('.lastname').val(),
+        'username': $('.new-username').val(),
+        'email': $('.email').val(),
+        'password': $('.new-password').val()
+      },
+      success: function(json){
+        if(!json){
+          $('.login_error').show();
+          $('.login_error').html("User already exists");
+        }
+        else if(json.length > 0){
+          $('#home-login-buttons').hide();
+          $('#home-logout-button').show();
+          $('#user-home-link').show();
+          window.location.assign('/findkita/view/user_home.html.php');
+        }
+      },
+      error: function(request, status, error) {
+        console.log("error" + request.responseText);
       }
-      else if(!json){
-        $('.login_error').show();
-        $('.login_error').html("User already exists");
-      }
-    },
-    error: function(request, status, error) {
-      console.log("error" + request.responseText);
-    }
-  });
+    });
+  }
 }
 
 function logoutUser(){

@@ -64,9 +64,10 @@
 
   function registerUser($firstname, $lastname, $username, $email, $password){
     global $mysqli;
-    $query = mysqli_query($mysqli, 'SELECT count(username) FROM users WHERE username = "$username"');
+    $query = mysqli_query($mysqli, 'SELECT * FROM users WHERE username = "$username"');
+    print_r($query);
     if($query->num_rows == 0){
-      $query = 'INSERT INTO users (f_name, l_name, username, email, password) VALUES(?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO users(f_name, l_name, username, email, password) VALUES(?, ?, ?, ?, ?)';
       $stmt = $mysqli->stmt_init();
       $stmt->prepare($query) or die(mysqli_error($mysqli));
       $stmt->bind_param('sssss', $firstname, $lastname, $username, $email, $password);

@@ -31,8 +31,11 @@
     echo json_encode($thread);
   }
   elseif($cmd == 'quoteReply'){
-    // $response = quoteReply();
-    // echo json_encode($response);
+    $quote = getValue('quote');
+    $post = getValue('post');
+    $thread = $_SESSION['thread'];
+    quoteReply($post, $quote, $thread);
+    echo json_encode($thread);
   }
 
   function loadPosts($thread) {
@@ -67,6 +70,24 @@
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
     $stmt->bind_param('ddds', $thread_id['thread_id'], $user, $avatar, $post);
+    $stmt->execute();
+    $stmt->close();
+  }
+
+  function quoteReply($post, $quote, $thread){
+    global $mysqli;
+    $user = $_SESSION['user'][0]['user_id'];
+    if(isset($_SESSION['avatar']['avatar_id'])){
+      $avatar = $_SESSION['avatar']['avatar_id'];
+    }
+    else{
+      $avatar = 1;
+    }
+    $thread_id = getParent($thread);
+    $query = 'INSERT INTO forum_posts(parent_id, user_id, avatar_id, post, post_date, quote) VALUES(?, ?, ?, ?, NOW(), ?)';
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
+    $stmt->bind_param('dddss', $thread_id['thread_id'], $user, $avatar, $post, $quote);
     $stmt->execute();
     $stmt->close();
   }

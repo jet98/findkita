@@ -1,4 +1,5 @@
 $(function(){
+  location.reload();
   // this is to save user edit search profile
   // there needs to be a check for the user to answer all questions
   $.ajax({
