@@ -18,7 +18,7 @@ VALUES("What would be the perfect first date?", "user");
 INSERT INTO questions(question, type)
 VALUES("What would best fit what you like to do in your downtime?", "user");
 INSERT INTO questions(question, type)
-VALUES("You have $500 to spend, what do you do with it?", "user");
+VALUES("You have $500 to spend what do you do with it?", "user");
 INSERT INTO questions(question, type)
 VALUES("What would be the perfect gift for you?", "user");
 

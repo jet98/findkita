@@ -35,7 +35,7 @@
     $options['Planning a night out? What would you want to do?'] = $_POST['Planninganightout?Whatwouldyouwanttodo?'];
     $options['What would be the perfect first date?'] = $_POST['Whatwouldbetheperfectfirstdate?'];
     $options['What would best fit what you like to do in your downtime?'] = $_POST['Whatwouldbestfitwhatyouliketodoinyourdowntime?'];
-    $options['You have $500 to spend, what do you do with it?'] = $_POST['Youhave$500tospend,whatdoyoudowithit?'];
+    $options['You have $500 to spend what do you do with it?'] = $_POST['Youhave$500tospendwhatdoyoudowithit?'];
     $options['What would be the perfect gift for you?'] = $_POST['Whatwouldbetheperfectgiftforyou?'];
     foreach($options as $key => $option){
       saveUserQuestions($key, $option);
@@ -117,8 +117,12 @@
     $user = $_SESSION['user'][0]['user_id'];
     $q_id = getQuestionID($key);
     $a_id = getAnswerID($option, 'user_answers');
-    $query = mysqli_query($mysqli, 'SELECT count(user_id) FROM user_questions WHERE user_id = "$user"');
-    if($query->num_rows < 10){
+    $query = mysqli_query($mysqli, 'SELECT user_id FROM user_questions WHERE user_id = "$user"');
+    $count = [];
+    while($row = $query->fetch_assoc()){
+      $count[] = $row;
+    }
+    if(count(serialize($count)) == 0){
       $query = 'INSERT INTO user_questions(user_id, questions_id, answers_id, points) VALUES(?, ?, ?, 1)';
       $stmt = $mysqli->stmt_init();
       $stmt->prepare($query) or die(mysqli_error($mysqli));

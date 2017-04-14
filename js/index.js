@@ -74,7 +74,7 @@ function registerUser(){
           $('.login_error').show();
           $('.login_error').html("User already exists");
         }
-        else if(json.length > 0){
+        else{
           $('#home-login-buttons').hide();
           $('#home-logout-button').show();
           $('#user-home-link').show();
