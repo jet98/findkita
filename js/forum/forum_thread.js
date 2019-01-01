@@ -1,5 +1,9 @@
 var dataTable = $('table').DataTable();
 
+$(function(){
+  $('.create-thread-button').show();
+});
+
 function loadThread(){
   var topicTitle = sessionStorage.getItem('topic');
 

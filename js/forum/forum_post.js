@@ -1,5 +1,9 @@
 var dataTable = $('table').DataTable();
 
+$(function(){
+  $('.reply-post-button').show();
+});
+
 function loadPosts(threadTitle){
   var threadTitle = sessionStorage.getItem('thread');
   $.ajax({
