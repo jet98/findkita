@@ -18,7 +18,7 @@ function createThread(){
       'post': $('#create_thread_post').val(),
     },
     success: function(data){
-      alert(data.toUpperCase() + " successfully was created.");
+      window.alert(data.toUpperCase() + " successfully was created.");
       location.reload();
     },
     error: function(request, status, error) {

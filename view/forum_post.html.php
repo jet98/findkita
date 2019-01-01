@@ -14,10 +14,11 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
-	<script type="text/javascript" src="../js/forum/forum_home.js"></script>
+  <script type="text/javascript" src="../js/forum/forum_home.js"></script>
+  <script type="text/javascript" src="../js/forum/forum_post.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
-	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
-	<script type="text/javascript" src="../js/searchBox.js"></script>
+	<!-- <script type="text/javascript" src="../js/amazon/get_Items.js"></script>
+	<script type="text/javascript" src="../js/searchBox.js"></script> -->
 </head>
 <body>
 	<!-- top nav bar -->
@@ -27,12 +28,12 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="index.html.php">Home</a>
 			</li>
-			<li class="nav-item active">
+			<!-- <li class="nav-item active">
 				<a class="nav-link" href="gift_finder.html.php">Gift Finder</a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="forum_home.html.php">Community</a>
-			</li>
+			</li> -->
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
 			<input class="form-control" id="search" type="text" placeholder="Search">
@@ -44,28 +45,6 @@
 	</div>
 	<!-- main body -->
 	<div class="container" id="main_body">
-		<!-- create thread modal -->
-		<div id="createThread" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Create Thread</h4>
-					</div>
-					<div class="modal-body user-modal">
-						<label>Title</label>
-						<input class="form-control" type="text" id="create_thread_title" placeholder="Enter Title" /></br>
-						<label>Post</label>
-						<textarea class="form-control" rows="3" id="create_thread_post" placeholder="Enter Post"></textarea>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-secondary create-thread-submit-button" data-dismiss="modal">Submit</button>
-					</div>
-				</div>
-			</div>
-		</div>
 		<!-- reply post modal -->
 		<div id="replyPost" class="modal fade" role="dialog">
 			<div class="modal-dialog">
@@ -110,11 +89,11 @@
 		<div class="container forum-topics">
 			<div class="container">
 				<h1>Share Your Ideas</h1>
-				<h4>If you're having trouble finding the perfect gift, be part of the community and let others help you, or give advice, and find what you need.</h4>
+				<h4>If you're having trouble finding the perfect gift, be part of the community and let others help you, or give advice and find what you need.</h4>
 			</div>
-			<div class="create-thread-button">
+			<!-- <div class="create-thread-button">
 				<button class="btn btn-secondary" data-toggle="modal" data-target="#createThread" type="submit">Create Thread</button>
-			</div>
+			</div> -->
 			<div class="reply-post-button">
 				<button class="btn btn-secondary" data-toggle="modal" data-target="#replyPost" type="submit">Reply</button>
 			</div>
@@ -130,11 +109,11 @@
 		</div>
 	</div>
 	<!-- div results from search -->
-	<div class="container" id="search_results_body">
+	<!-- <div class="container" id="search_results_body"> -->
 		<!-- list of results -->
-		<div class="container well" id="results_list">
+		<!-- <div class="container well" id="results_list">
 		</div>
-	</div>
+	</div> -->
 	<!-- footer -->
 	<div class="footer">
 		<h5><a href="#" id="footer-contacts">Contact</a> Finding Kita</h5>

@@ -96,7 +96,6 @@ function saveUserQuestions(){
     contentType: false,
     processData: false,
     success: function(json){
-      console.log(json);
     },
     error: function(request, status, error) {
       console.log("error " + request.responseText);

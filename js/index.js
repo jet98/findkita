@@ -13,7 +13,6 @@ $(function(){
         $('#home-login-buttons').hide();
         $('#home-logout-button').show();
         $('#user-home-link').show();
-        console.log("user active");
       }
     },
     error: function(request, status, error) {
@@ -37,7 +36,6 @@ function loginUser(){
         $('#home-logout-button').show();
         $('.login_error').hide();
         $('#user-home-link').show();
-        console.log(json);
         window.location.assign('/findkita/view/user_home.html.php');
       }
       else{
@@ -97,7 +95,6 @@ function logoutUser(){
       $('#home-login-buttons').show();
       $('#home-logout-button').hide();
       $('#user-home-link').hide();
-      console.log(json);
       window.location.assign('/findkita/view/index.html.php');
     },
     error: function(request, status, error) {
@@ -121,8 +118,7 @@ function sendMessage(){
     data: data,
     success: function(json){
       if(json != "The email address is not valid."){
-        console.log(json + " message sent");
-        alert("Message has beed sent");
+        window.alert(json + " message sent");
       }
       else{
         alert(json);

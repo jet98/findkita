@@ -24,12 +24,12 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="index.html.php">Home</a>
 			</li>
-			<li class="nav-item active">
+			<!-- <li class="nav-item active">
 				<a class="nav-link" href="gift_finder.html.php">Gift Finder</a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="forum_home.html.php">Community</a>
-			</li>
+			</li> -->
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
 			<input class="form-control" id="search" type="text" placeholder="Search">
@@ -117,44 +117,26 @@
 				</div>
 			</div>
 			<!-- questionnaire  -->
-			<h3>Let's Personalize Your Search</h3>
-			<form class="form-horizontal" method="POST" enctype="text/plain" id="user_form">
+			<!-- <h3>Let's Personalize Your Search</h3>
+			<form class="form-horizontal" method="POST" enctype="text/plain" id="user_form"> -->
 				<!-- location for user profile questions -->
-			</form>
+			<!-- </form>
 			<div class="form-group">
 				<label class="col-md-3 control-label"></label>
 				<div class="col-md-8">
 					<button id="user_profile_save_button" type="button" class="btn btn-secondary">Save Profile</button>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!-- div results from search -->
 	<div class="container" id="search_results_body">
-		<!-- seperate list by API -->
-		<!-- <div class="container" id="shopping_list">
-			<table class="table" id="full_width">
-				<thead>
-					<tr>
-						<th>Shop List</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td id="amazon">Amazon</td>
-					</tr>
-					<tr>
-						<td>Shop2</td>
-					</tr>
-				</tbody>
-			</table>
-		</div> -->
 		<!-- list of results -->
 		<div class="container well" id="results_list">
 		</div>
 	</div>
 	<!-- footer -->
-	<div class="footer">
+	<div class="footer-absolute">
 		<h5><a href="#" id="footer-contacts">Contact</a> Finding Kita</h5>
 	</div>
 </body>

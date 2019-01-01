@@ -25,12 +25,12 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="index.html.php">Home</a>
 			</li>
-			<li class="nav-item active">
+			<!-- <li class="nav-item active">
 				<a class="nav-link" href="gift_finder.html.php">Gift Finder</a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="forum_home.html.php">Community</a>
-			</li>
+			</li> -->
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
 			<input class="form-control" id="search" type="text" placeholder="Search">
@@ -77,29 +77,11 @@
 		</div>
 	</div>
 	<!-- div results from search -->
-	<div class="container" id="search_results_body">
-		<!-- seperate list by API -->
-		<!-- <div class="container" id="shopping_list">
-			<table class="table" id="full_width">
-				<thead>
-					<tr>
-						<th>Shop List</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td id="amazon">Amazon</td>
-					</tr>
-					<tr>
-						<td>Shop2</td>
-					</tr>
-				</tbody>
-			</table>
-		</div> -->
+	<!-- <div class="container" id="search_results_body"> -->
 		<!-- list of results -->
-		<div class="container well" id="results_list">
+		<!-- <div class="container well" id="results_list">
 		</div>
-	</div>
+	</div> -->
 	<!-- footer -->
 	<div class="footer">
 		<h5><a href="#" id="footer-contacts">Contact</a> Finding Kita</h5>

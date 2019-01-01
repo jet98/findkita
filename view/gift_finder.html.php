@@ -54,24 +54,6 @@
 	</div>
 	<!-- div results from search -->
 	<div class="container" id="search_results_body">
-		<!-- seperate list by API -->
-		<!-- <div class="container" id="shopping_list">
-			<table class="table" id="full_width">
-				<thead>
-					<tr>
-						<th>Shop List</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td id="amazon">Amazon</td>
-					</tr>
-					<tr>
-						<td>Shop2</td>
-					</tr>
-				</tbody>
-			</table>
-		</div> -->
 		<!-- list of results -->
 		<div class="container well" id="results_list">
 		</div>

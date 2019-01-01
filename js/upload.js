@@ -23,8 +23,6 @@ function uploadFile(){
     data: formData,
     success: function(json){
       $('#edit-profile-picture').prop('src', json.replace(/\\/g, "").replace(/"/g, ""));
-      console.log(json.replace(/\\/g, "").replace(/"/g, ""));
-      console.log("file was uploaded");
     },
     error: function(request, status, error) {
       console.log("error " + request.status + " " + request.error);

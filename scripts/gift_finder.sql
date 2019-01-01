@@ -22,25 +22,25 @@ VALUES(2, 3, 39, 'teen girl book lover');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
 VALUES(2, 3, 40, 'teen girl style');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(1, 4, 36, 'man work');
+VALUES(1, 4, 36, 'young man work');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(1, 4, 37, 'man media');
+VALUES(1, 4, 37, 'young man media');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(1, 4, 38, 'man friend');
+VALUES(1, 4, 38, 'young man friend');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(1, 4, 39, 'man book lover');
+VALUES(1, 4, 39, 'young man book lover');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(1, 4, 40, 'man style');
+VALUES(1, 4, 40, 'young man style');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(2, 4, 36, 'woman work');
+VALUES(2, 4, 36, 'young woman work');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(2, 4, 37, 'woman media');
+VALUES(2, 4, 37, 'young woman media');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(2, 4, 38, 'woman friend');
+VALUES(2, 4, 38, 'young woman friend');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(2, 4, 39, 'woman book lover');
+VALUES(2, 4, 39, 'young woman book lover');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
-VALUES(2, 4, 40, 'woman style');
+VALUES(2, 4, 40, 'young woman style');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)
 VALUES(1, 5, 36, 'man work');
 INSERT INTO gift_finder(answerA_id, answerB_id, answerC_id, keyword)

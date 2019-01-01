@@ -21,7 +21,7 @@ function deleteProfile(){
       type: 'DELETE',
       contentType: 'application/json',
       success: function(json){
-        console.log("account removed");
+        window.alert("Account removed");
         window.location.assign('/findkita/view/index.html.php');
         logoutUser();
       },

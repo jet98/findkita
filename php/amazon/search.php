@@ -12,7 +12,6 @@
     $keyword = $_GET['keyword'];
     $response = querySearch($keyword);
     $response = getItems($response);
-    // $_SESSION['search'] = $response;
     echo json_encode($response);
   }
 ?>

@@ -4,7 +4,6 @@ $(function(){
     type: 'POST',
     contentType: 'application/json',
     success: function(json){
-      console.log(json.length);
       if(json.length == 10){
         var index = 0;
         $('select').each(function(){

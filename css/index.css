@@ -204,4 +204,17 @@ a:hover{
 	position: relative;
 	bottom: 0;
 	width: 100%;
+	margin-top: 30px;
+}
+
+.footer-absolute{
+	border-top: 1px solid black;
+	background-color: #e6e6ff;
+	clear: both;
+	padding: 10px;
+	padding-left: 100px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	margin-top: 30px;
 }

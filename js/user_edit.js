@@ -35,16 +35,13 @@ function changePassword(){
       if(json == $('#current-password').val()){
         if($('#enter-new-password').val() == $('#confirm-new-password').val()){
           window.location.assign('/findkita/view/user_home.html.php');
-          console.log("password successfully changed");
         }
         else{
           window.alert("New password does not match");
-          console.log("password does not match");
         }
       }
       else{
         window.alert("Current password incorrect");
-        console.log("current password incorrect");
       }
     },
     error: function(request, status, error) {
