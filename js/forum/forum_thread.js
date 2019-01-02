@@ -15,6 +15,12 @@ function loadThread(){
       'topicTitle': topicTitle
     },
     success: function(json){
+      //If there is no user logged in
+      if(json[0] === undefined){
+          alert("Please log in to add a thread");
+          $('.create-thread-button').hide();
+      }
+
       dataTable.destroy();
       $('.create-thread-button').show();
       $('.reply-post-button').hide();

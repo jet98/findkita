@@ -14,9 +14,6 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
-	<!-- <script type="text/javascript" src="../js/amazon/get_Items.js"></script>
-	<script type="text/javascript" src="../js/amazon/feature_Items.js"></script>
-	<script type="text/javascript" src="../js/searchBox.js"></script> -->
 	<script type="text/javascript" src="../js/forum/forum_home.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_thread.js"></script>
   <script type="text/javascript" src="../js/forum/forum_post.js"></script>
@@ -43,6 +40,12 @@
 		</form>
 		<div class="navbar-left" id="home-logout-button">
 			<button class="btn btn-secondary" type="button">Logout</button>
+		</div>
+		<!-- login/register buttons -->
+		<div class="text-center" id="home-login-buttons">
+			<h4 class="login_error"></h4>
+			<button class="btn btn-secondary login-btn" type="button" data-toggle="modal" data-target="#loginModal">Login</button>
+			<button class="btn btn-secondary register-btn" type="button" data-toggle="modal" data-target="#registerModal">Register</button>
 		</div>
 	</div>
 	<!-- Register Modal -->
@@ -101,12 +104,6 @@
 	</div>
 	<!-- main body -->
 	<div class="container" id="main_body">
-		<!-- login/register buttons -->
-		<div class="text-center" id="home-login-buttons">
-			<h4 class="login_error"></h4>
-			<button class="btn btn-secondary login-btn" type="button" data-toggle="modal" data-target="#loginModal">Login</button>
-			<button class="btn btn-secondary register-btn" type="button" data-toggle="modal" data-target="#registerModal">Register</button>
-		</div>
 		<!-- topics list -->
 		<div class="container forum-topics">
 			<div class="container">

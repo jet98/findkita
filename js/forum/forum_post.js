@@ -14,6 +14,13 @@ function loadPosts(threadTitle){
       'threadTitle': threadTitle
     },
     success: function(json){
+      //If there is no user logged in
+      if(json[0] === undefined){
+          alert("Please log in to add a post");
+          $('.reply-post-button').hide();
+          $('#post-reply').hide();
+      }
+      
       dataTable.destroy();
       $('.create-thread-button').hide();
       $('.reply-post-button').show();

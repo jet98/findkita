@@ -17,8 +17,6 @@
   <script type="text/javascript" src="../js/forum/forum_home.js"></script>
   <script type="text/javascript" src="../js/forum/forum_post.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
-	<!-- <script type="text/javascript" src="../js/amazon/get_Items.js"></script>
-	<script type="text/javascript" src="../js/searchBox.js"></script> -->
 </head>
 <body>
 	<!-- top nav bar -->
@@ -91,9 +89,6 @@
 				<h1>Share Your Ideas</h1>
 				<h4>If you're having trouble finding the perfect gift, be part of the community and let others help you, or give advice and find what you need.</h4>
 			</div>
-			<!-- <div class="create-thread-button">
-				<button class="btn btn-secondary" data-toggle="modal" data-target="#createThread" type="submit">Create Thread</button>
-			</div> -->
 			<div class="reply-post-button">
 				<button class="btn btn-secondary" data-toggle="modal" data-target="#replyPost" type="submit">Reply</button>
 			</div>
@@ -108,12 +103,6 @@
 			</table>
 		</div>
 	</div>
-	<!-- div results from search -->
-	<!-- <div class="container" id="search_results_body"> -->
-		<!-- list of results -->
-		<!-- <div class="container well" id="results_list">
-		</div>
-	</div> -->
 	<!-- footer -->
 	<div class="footer">
 		<h5><a href="#" id="footer-contacts">Contact</a> Finding Kita</h5>
