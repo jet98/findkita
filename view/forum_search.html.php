@@ -5,6 +5,7 @@
 	<link rel="shortcut icon" type="image/png" href="../images/fav.png"/>
 	<title>Gift My Idea</title>
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/forum.css">
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/tabletools/2.2.1/css/dataTables.tableTools.css">
@@ -13,10 +14,9 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<script type="text/javascript" src="../js/user_home.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
-	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
-	<script type="text/javascript" src="../js/searchBox.js"></script>
+  <script type="text/javascript" src="../js/searchBox.js"></script>
+	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -43,50 +43,27 @@
 	</div>
 	<!-- main body -->
 	<div class="container" id="main_body">
-		<!-- user profile -->
-		<div class="well" id="users_profile">
-			<div class="container" id="full_width">
-				<div class="text-center" id="users_profile_image">
-					<h3 id="username">
-						<?php include_once '../php/userdata.php'; echo username(); ?>
-					</h3>
-					<img src="<?php include_once '../php/userData.php'; echo uploadedFile(); ?>" id="edit-profile-picture" /></br>
-					<a href="user_edit.html.php">Edit</a> | <a id="delete_profile" href="#">Delete Profile</a>
-				</div>
-				<div id="profile_info">
-					<?php include_once '../php/userData.php'; echo aboutMe(); ?>
-				</div>
+
+		<!-- topics list -->
+		<div class="container forum-topics">
+			<div class="container">
+				<h1>Search Results</h1>
 			</div>
-		</div>
-		<!-- user activity -->
-		<div class="well" id="users_profile">
-			<div class="container" id="full_width">
-				<h3 id="username">Username<span>'s Activity</span></h3>
-				<div id="users_profile_info">
-					<!-- post -->
-					<table class="table well" id="table_well">
-						<thead>
-							<tr>
-								<th id="user-table-post">Latest Post</th>
-								<th id="user-table-comment">Comment</th>
-								<th id="user-table-date">Date</th>
-							</tr>
-						</thead>
-					</table>
-				</div>
+			<div id="nav-forum">
+				<span onmouseover="" id="nav-forum-text"></span>
 			</div>
+			<table class="table" id="forum-topic-table">
+				<thead id="forum-topic-head">
+				</thead>
+				<tbody id="forum_topic_body">
+				</tbody>
+			</table>
 		</div>
 		<!-- Place add here
 		<div>
 		</div>
 		-->
 	</div>
-	<!-- div results from search -->
-	<!-- <div class="container" id="search_results_body"> -->
-		<!-- list of results -->
-		<!-- <div class="container well" id="results_list">
-		</div>
-	</div> -->
 	<!-- footer -->
 	<div class="footer">
 		<h5><a href="#" id="footer-contacts">Contact</a> Finding Kita</h5>

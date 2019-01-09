@@ -3,7 +3,7 @@
 
 <head>
 	<link rel="shortcut icon" type="image/png" href="../images/fav.png"/>
-	<title>Project Location North</title>
+	<title>Gift My Idea</title>
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

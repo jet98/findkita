@@ -3,7 +3,7 @@
 
 <head>
 	<link rel="shortcut icon" type="image/png" href="../images/fav.png"/>
-	<title>Project Location North</title>
+	<title>Gift My Idea</title>
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../css/forum.css">
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,9 +13,12 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
   <script type="text/javascript" src="../js/forum/forum_home.js"></script>
   <script type="text/javascript" src="../js/forum/forum_post.js"></script>
+	<script type="text/javascript" src="../js/forum/forum_thread.js"></script>
+	<script type="text/javascript" src="../js/searchBox.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
 </head>
 <body>
@@ -102,6 +105,10 @@
 				</tbody>
 			</table>
 		</div>
+		<!-- Place add here
+		<div>
+		</div>
+		-->
 	</div>
 	<!-- footer -->
 	<div class="footer">

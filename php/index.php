@@ -42,6 +42,11 @@
     setSessionValue('user', array());
     echo json_encode("logout successfully");
   }
+  elseif($cmd == 'searchResults'){
+    $searchTerm = getValue('keyword');
+    $searchResults = getSearchResults($searchTerm);
+    echo json_encode($searchResults);
+  }
 
   function loginUser($username, $password) {
     $response = array();
@@ -63,6 +68,8 @@
   }
 
   function registerUser($firstname, $lastname, $username, $email, $password){
+    $rtn = false;
+
     global $mysqli;
     $query = mysqli_query($mysqli, 'SELECT username FROM users WHERE username = "$username"');
     if($query->num_rows == 0){
@@ -74,11 +81,29 @@
       $res = $stmt->get_result();
       $stmt->close();
       $login = loginUser($username, $password);
-      return true;
+      $rtn = true;
     }
-    else{
-      return false;
+
+    return $rtn;
+  }
+
+  function getSearchResults($searchTerm){
+    $searchTerm = "%".$searchTerm."%";
+    $response = array();
+
+    global $mysqli;
+    $query = 'SELECT * FROM forum_thread AS ft, forum_posts AS fp WHERE ft.thread_title LIKE ? OR fp.post LIKE ?';
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
+    $stmt->bind_param('ss', $searchTerm, $searchTerm);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    while ($row = $res->fetch_assoc())
+    {
+      $response[] = $row;
     }
+    $stmt->close();
+    return $response;
   }
   $mysqli->close();
 ?>
