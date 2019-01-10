@@ -27,7 +27,7 @@
 		<a class="navbar-brand" href="index.html.php"><img src="../images/navtitle.png" /></a>
 		<ul class="nav navbar-nav">
 			<li class="nav-item active" id="user-home-link">
-				<a class="nav-link" href="user_home.html.php">User Home</a>
+				<a class="nav-link" href="user_home.html.php"><?php include_once '../php/userdata.php'; echo username(); ?></a>
 			</li>
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">

@@ -24,7 +24,7 @@
 		<a class="navbar-brand" href="index.html.php"><img src="../images/navtitle.png" /></a>
 		<ul class="nav navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link" href="user_home.html.php">User Home</a>
+				<a class="nav-link" id="nav_user_home" href="user_home.html.php"><?php include_once '../php/userdata.php'; echo username(); ?></a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="index.html.php">Topics</a>
