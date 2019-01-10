@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/tabletools/2.2.1/css/dataTables.tableTools.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/keypress/2.1.5/keypress.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
@@ -62,17 +62,17 @@
 				<form>
 					<div class="modal-body user-modal">
 						<label>First Name</label>
-						<input class="form-control firstname" type="text" placeholder="Enter First Name" /></br>
+						<input class="form-control firstname register-user" type="text" placeholder="Enter First Name" /></br>
 						<label>Last Name</label>
-						<input class="form-control lastname" type="text" placeholder="Enter Last Name" /></br>
+						<input class="form-control lastname register-user" type="text" placeholder="Enter Last Name" /></br>
 						<label>Username</label>
-						<input class="form-control new-username" type="text" placeholder="Enter Username" /></br>
+						<input class="form-control new-username register-user" type="text" placeholder="Enter Username" /></br>
 						<label>Email</label>
-						<input class="form-control email" type="text" placeholder="Enter Email" /></br>
+						<input class="form-control email register-user" type="text" placeholder="Enter Email" /></br>
 						<label>Password</label>
-						<input class="form-control new-password" type="password" placeholder="Enter Password" /></br>
+						<input class="form-control new-password register-user" type="password" placeholder="Enter Password" /></br>
 						<label>Confirm Password</label>
-						<input class="form-control confirm-password" type="password" placeholder="confirm Password" />
+						<input class="form-control confirm-password register-user" type="password" placeholder="confirm Password" />
 					</div>
 				</form>
 				<div class="modal-footer">
@@ -93,9 +93,9 @@
 				</div>
 				<div class="modal-body user-modal">
 					<label>Username</label>
-					<input class="form-control username" type="text" placeholder="Enter Username" /></br>
+					<input class="form-control username login-user" type="text" placeholder="Enter Username" /></br>
 					<label>Password</label>
-					<input class="form-control password" type="password" placeholder="Enter Password" />
+					<input class="form-control password login-user" type="password" placeholder="Enter Password" />
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

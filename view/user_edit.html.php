@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/keypress/2.1.5/keypress.min.js"></script>
 	<script type="text/javascript" src="../js/user_edit.js"></script>
 	<script type="text/javascript" src="../js/questions.js"></script>
 	<script type="text/javascript" src="../js/userSavedQuestions.js"></script>
@@ -81,7 +81,7 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label">About Me:</label>
 					<div class="col-md-8">
-						<input class="form-control" type="text" id="about_me" value="<?php include_once '../php/userData.php'; echo aboutMe(); ?>">
+						<input class="form-control edit-user-about-me" type="text" id="about_me" value="<?php include_once '../php/userData.php'; echo aboutMe(); ?>">
 					</div>
 				</div>
 				<div class="form-group">
@@ -104,11 +104,11 @@
 						</div>
 						<div class="modal-body user-modal">
 							<label>Current Password</label>
-							<input class="form-control" type="password" placeholder="Enter Current Password" id="current-password" /></br>
+							<input class="form-control change-password" type="password" placeholder="Enter Current Password" id="current-password" /></br>
 							<label>New Password</label>
-							<input class="form-control" type="password" placeholder="Enter New Password" id="enter-new-password" /></br>
+							<input class="form-control change-password" type="password" placeholder="Enter New Password" id="enter-new-password" /></br>
 							<label>Confirm Password</label>
-							<input class="form-control" type="password" placeholder="Enter New Password" id="confirm-new-password"/>
+							<input class="form-control change-password" type="password" placeholder="Enter New Password" id="confirm-new-password"/>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -133,12 +133,6 @@
 		<div>
 		</div>
 		-->
-	</div>
-	<!-- div results from search -->
-	<div class="container" id="search_results_body">
-		<!-- list of results -->
-		<div class="container well" id="results_list">
-		</div>
 	</div>
 	<!-- footer -->
 	<div class="footer-absolute">

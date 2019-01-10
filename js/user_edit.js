@@ -49,3 +49,17 @@ function changePassword(){
     }
   });
 }
+
+// Keypress on enter for edit user about me
+$(document).on('keypress', '.edit-user-about-me', function(event){
+  if(event.keyCode === 13){
+    saveEditProfile();
+  }
+});
+
+// Keypress on enter for change password modal
+$(document).on('keypress', '.change-password', function(event){
+  if(event.keyCode === 13){
+    changePassword();
+  }
+});

@@ -3,7 +3,6 @@ $(function(){
   $('.register-submit-button').click(registerUser);
   $('#home-logout-button').click(logoutUser);
   $('#main_body').show();
-  $('#search_results_body').hide();
   $.ajax({
     url: '../php/index.php?cmd=currentSession',
     type: 'POST',
@@ -102,6 +101,22 @@ function logoutUser(){
     }
   });
 }
+
+// Keypress on enter for register modal
+$(document).on('keypress', '.register-user', function(event){
+  if(event.keyCode === 13){
+    event.preventDefault();
+    registerUser();
+  }
+});
+
+// Keypress on enter for login modal
+$(document).on('keypress', '.login-user', function(event){
+  if(event.keyCode === 13){
+    event.preventDefault();
+    loginUser();
+  }
+});
 
 function sendMessage(){
   var data = new FormData();

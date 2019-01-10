@@ -6,17 +6,6 @@ $(function(){
     keyword = $('#search').val();
     getResults(keyword);
   });
-
-  // Search bar button
-  $('#search').keyup(function(event){
-    if(event.keyCode === 13){
-      $('.search').click(function(){
-        event.preventDefault();
-        keyword = $('#search').val();
-        getResults(keyword);
-      });
-    }
-  });
 });
 
 function getResults(keyword){
@@ -40,12 +29,11 @@ function getResults(keyword){
   });
 }
 
-// $(document).on('keypress', '#search', function(event){
-//   if(event.keyCode === 13){
-//     $('.search').click(function(){
-//       event.preventDefault();
-//       keyword = $('#search').val();
-//       getResults(keyword);
-//     });
-//   }
-// });
+// Keypress on enter for search bar
+$(document).on('keypress', '#search', function(event){
+  if(event.keyCode === 13){
+    event.preventDefault();
+    keyword = $('#search').val();
+    getResults(keyword);
+  }
+});

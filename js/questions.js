@@ -104,7 +104,6 @@ function saveUserQuestions(){
 }
 
 function getProfileGifts(){
-  $('#search_results_body').show();
   $('#main_body').hide();
   getItems("../php/amazon/search.php?cmd=searchItems", keyword, "#results_list");
 }
