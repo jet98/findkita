@@ -24,14 +24,11 @@
 		<a class="navbar-brand" href="index.html.php"><img src="../images/navtitle.png" /></a>
 		<ul class="nav navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link" href="index.html.php">Home</a>
-			</li>
-			<!-- <li class="nav-item active">
-				<a class="nav-link" href="gift_finder.html.php">Gift Finder</a>
+				<a class="nav-link" href="user_home.html.php">User Home</a>
 			</li>
 			<li class="nav-item active">
-				<a class="nav-link" href="forum_home.html.php">Community</a>
-			</li> -->
+				<a class="nav-link" href="index.html.php">Topics</a>
+			</li>
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
 			<input class="form-control" id="search" type="text" placeholder="Search">

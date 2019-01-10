@@ -29,12 +29,6 @@
 			<li class="nav-item active" id="user-home-link">
 				<a class="nav-link" href="user_home.html.php">User Home</a>
 			</li>
-			<!-- <li class="nav-item active">
-				<a class="nav-link" href="gift_finder.html.php">Gift Finder</a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="forum_home.html.php">Community</a>
-			</li> -->
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
 			<input class="form-control" id="search" type="text" placeholder="Search">
