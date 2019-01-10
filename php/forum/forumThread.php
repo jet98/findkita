@@ -10,28 +10,27 @@
   header('Content-type: application/json');
 
   $mysqli = new mysqli($db_hostname,$db_username,$db_password,$db_database);
-  if ($mysqli->connect_error)
-  {
+  if ($mysqli->connect_error){
     die("Connection failed: " . $mysqli->connect_error);
   }
 
   $cmd = getValue('cmd');
 
-  if ($cmd == 'loadThread')
-  {
+  if ($cmd == 'loadThread'){
     $topic = getValue('topicTitle');
+    updateThread();
     $response = loadThread($topic);
     setSessionValue('topic', $topic);
     echo json_encode($response);
   }
-  elseif($cmd == 'createThread') {
+  elseif($cmd == 'createThread'){
     $title = getValue('title');
     $post = getValue('post');
     addThread($title, $post);
     echo json_encode($title);
   }
 
-  function loadThread($topic) {
+  function loadThread($topic){
     global $mysqli;
     $response = array();
     $query = 'SELECT forum_thread.*, users.f_name FROM forum_thread INNER JOIN forum_topics ft ON ft.topic_id = forum_Thread.parent_id INNER JOIN users ON users.user_id = forum_thread.user_id WHERE ft.topic = ?';
@@ -40,19 +39,29 @@
     $stmt->bind_param('s', $topic);
     $stmt->execute();
     $res = $stmt->get_result();
-    while ($row = $res->fetch_assoc())
-    {
+    while ($row = $res->fetch_assoc()){
       $response[] = $row;
     }
     $stmt->close();
-    updateThread($response);
 
     return $response;
   }
 
-  function updateThread($response){
+  function updateThread(){
     global $mysqli;
-    foreach($response as $topic) {
+    // Select all threads before updating
+    $response = array();
+    $query = 'SELECT forum_thread.*, users.f_name FROM forum_thread INNER JOIN forum_topics ft ON ft.topic_id = forum_Thread.parent_id INNER JOIN users ON users.user_id = forum_thread.user_id WHERE ft.topic = ?';
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
+    $stmt->bind_param('s', $topic);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    while ($row = $res->fetch_assoc()){
+      $response[] = $row;
+    }
+
+    foreach($response as $topic){
       $query = 'UPDATE forum_thread SET replies = (SELECT count(post) FROM forum_posts WHERE parent_id = ?) WHERE thread_id = ?';
       $stmt = $mysqli->stmt_init();
       $stmt->prepare($query) or die(mysqli_error($mysqli));
@@ -92,8 +101,7 @@
     $stmt->prepare($query) or die(mysqli_error($mysqli));
     $stmt->execute();
     $res = $stmt->get_result();
-    while ($row = $res->fetch_assoc())
-    {
+    while ($row = $res->fetch_assoc()){
       $response = $row;
     }
 

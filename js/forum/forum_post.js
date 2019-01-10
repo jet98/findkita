@@ -15,17 +15,19 @@ function loadPosts(threadTitle){
     },
     success: function(json){
       //If there is no user logged in
-      if(json[0] === undefined){
-          alert("Please log in to add a post");
-          $('.reply-post-button').hide();
-          $('#post-reply').hide();
-      }
-      
-      dataTable.destroy();
-      $('.create-thread-button').hide();
-      $('.reply-post-button').show();
-      $('#nav-forum').hide();
-      $('#nav-forum-text').html("<< Threads");
+      // if(json[0] === undefined){
+      //   alert("Please log in to add a post");
+      //   $('.reply-post-button').hide();
+      //   $('#post-reply').hide();
+      // }
+      // else{
+        dataTable.destroy();
+        $('.create-thread-button').hide();
+        $('.reply-post-button').show();
+        $('#nav-forum').hide();
+        $('#nav-forum-text').html("<< Threads");
+      // }
+
       var addHead = "<tr><th id=\"forum-post-author\">Author</th><th id=\"forum-post-post-title\">Posts</th><th id=\"forum-post-reply\">Reply</th></tr>";
       $('#forum-topic-head').html(addHead);
       var addHtml = "";

@@ -10,15 +10,14 @@
   header('Content-type: application/json');
 
   $mysqli = new mysqli($db_hostname,$db_username,$db_password,$db_database);
-  if ($mysqli->connect_error)
-  {
+  if ($mysqli->connect_error){
     die("Connection failed: " . $mysqli->connect_error);
   }
 
   $cmd = getValue('cmd');
 
-  if ($cmd == 'loadTopics')
-  {
+  if ($cmd == 'loadTopics'){
+    updateTopics();
     $response = loadTopics();
     echo json_encode($response);
   }
@@ -35,14 +34,24 @@
       $response[] = $row;
     }
     $stmt->close();
-    updateTopics($response);
 
     return $response;
   }
 
-  function updateTopics($response){
+  function updateTopics(){
     global $mysqli;
-    foreach($response as $topic) {
+    // Select all topics before updating
+    $response = array();
+    $query = 'SELECT * FROM forum_topics';
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
+    $stmt->execute();
+    $res = $stmt->get_result();
+    while($row = $res->fetch_assoc()){
+      $response[] = $row;
+    }
+
+    foreach($response as $topic){
       $query = 'UPDATE forum_topics SET post = (SELECT count(thread) FROM forum_thread WHERE parent_id = ?) WHERE topic_id = ?';
       $stmt = $mysqli->stmt_init();
       $stmt->prepare($query) or die(mysqli_error($mysqli));
