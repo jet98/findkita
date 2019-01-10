@@ -18,7 +18,7 @@
 
   if ($cmd == 'loadThread'){
     $topic = getValue('topicTitle');
-    updateThread();
+    updateThread($topic);
     $response = loadThread($topic);
     setSessionValue('topic', $topic);
     echo json_encode($response);
@@ -47,11 +47,11 @@
     return $response;
   }
 
-  function updateThread(){
+  function updateThread($topic){
     global $mysqli;
     // Select all threads before updating
     $response = array();
-    $query = 'SELECT forum_thread.*, users.f_name FROM forum_thread INNER JOIN forum_topics ft ON ft.topic_id = forum_Thread.parent_id INNER JOIN users ON users.user_id = forum_thread.user_id WHERE ft.topic = ?';
+    $query = 'SELECT forum_thread.* FROM forum_thread INNER JOIN forum_topics ft ON ft.topic_id = forum_Thread.parent_id WHERE ft.topic = ?';
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($query) or die(mysqli_error($mysqli));
     $stmt->bind_param('s', $topic);
