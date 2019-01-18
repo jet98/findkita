@@ -99,7 +99,7 @@
 				<span onmouseover="" id="nav-forum-text"></span>
 			</div>
 			<table class="table" id="forum-topic-table">
-				<thead id="forum-topic-head">
+				<thead id="forum_topic_head">
 				</thead>
 				<tbody id="forum_topic_body">
 				</tbody>
@@ -112,7 +112,33 @@
 	</div>
 	<!-- footer -->
 	<div class="footer">
-		<h5><a href="#" id="footer-contacts">Contact</a> Finding Kita</h5>
+		<!-- Footer Modal -->
+		<div id="footerModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Contact <img src="../images/navtitle.png" /></h4>
+					</div>
+					<form class="modal-body user-modal" method="post" enctype="text/plain">
+						<label>Name</label>
+						<input class="form-control" type="text" id="contact-name" name="name" placeholder="Enter Name" /></br>
+						<label>Email</label>
+						<input class="form-control" type="text" id="contact-email" name="email" placeholder="Enter Email" /></br>
+						<label>Subject</label>
+						<input class="form-control" type="text" id="contact-subject" name="subject" placeholder="Enter Subject" /></br>
+						<label>Message</label>
+						<textarea class="form-control" rows="3" type="text" id="contact-message" name="message" placeholder="Enter Message"></textarea>
+					</form>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-secondary contact-message" data-dismiss="modal" onclick="sendMessage()" >Send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h5><span onmouseover="" style="color:#FF0000; cursor:pointer;" data-toggle="modal" data-target="#footerModal" id="footer-contacts">Contact</span> Finding Kita</h5>
 	</div>
 </body>
 </html>

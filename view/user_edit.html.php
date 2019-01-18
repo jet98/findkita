@@ -114,17 +114,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- questionnaire  -->
-			<!-- <h3>Let's Personalize Your Search</h3>
-			<form class="form-horizontal" method="POST" enctype="text/plain" id="user_form"> -->
-				<!-- location for user profile questions -->
-			<!-- </form>
-			<div class="form-group">
-				<label class="col-md-3 control-label"></label>
-				<div class="col-md-8">
-					<button id="user_profile_save_button" type="button" class="btn btn-secondary">Save Profile</button>
-				</div>
-			</div> -->
 		</div>
 		<!-- Place add here
 		<div>
@@ -132,8 +121,34 @@
 		-->
 	</div>
 	<!-- footer -->
-	<div class="footer-absolute">
-		<h5><a href="#" id="footer-contacts">Contact</a> Finding Kita</h5>
+	<div class="footer">
+		<!-- Footer Modal -->
+		<div id="footerModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Contact <img src="../images/navtitle.png" /></h4>
+					</div>
+					<form class="modal-body user-modal" method="post" enctype="text/plain">
+						<label>Name</label>
+						<input class="form-control" type="text" id="contact-name" name="name" placeholder="Enter Name" /></br>
+						<label>Email</label>
+						<input class="form-control" type="text" id="contact-email" name="email" placeholder="Enter Email" /></br>
+						<label>Subject</label>
+						<input class="form-control" type="text" id="contact-subject" name="subject" placeholder="Enter Subject" /></br>
+						<label>Message</label>
+						<textarea class="form-control" rows="3" type="text" id="contact-message" name="message" placeholder="Enter Message"></textarea>
+					</form>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-secondary contact-message" data-dismiss="modal" onclick="sendMessage()" >Send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h5><span onmouseover="" style="color:#FF0000; cursor:pointer;" data-toggle="modal" data-target="#footerModal" id="footer-contacts">Contact</span> Finding Kita</h5>
 	</div>
 </body>
 </html>

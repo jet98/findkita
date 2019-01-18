@@ -110,7 +110,7 @@
 				<span onmouseover="" id="nav-forum-text"></span>
 			</div>
 			<table class="table" id="forum-topic-table">
-				<thead id="forum-topic-head">
+				<thead id="forum_topic_head">
 				</thead>
 				<tbody id="forum_topic_body">
 				</tbody>

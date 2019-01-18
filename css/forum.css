@@ -1,4 +1,4 @@
-#forum-topic-head{
+#forum_topic_head{
   background-color: #F08080;
 }
 
@@ -22,11 +22,8 @@ a{
 
 td{
   padding-top: 5em;
-  text-align: left;
-}
-
-td{
   height: 4em;
+  text-align: left;
 }
 
 #forum-post-username{
@@ -47,9 +44,20 @@ td{
   font-size: 12px;
 }
 
-
 #forum-post-reply{
   width: 50px;
+}
+
+#search-topic-value{
+
+}
+
+#search-thread-value{
+
+}
+
+#search-post-value{
+
 }
 
 #nav-forum-text{

@@ -26,7 +26,7 @@ function loadTopics(){
     success: function(json){
       dataTable.destroy();
       var addHead = "<tr><th id=\"topic-title-head\">Topic</th><th>Thread</th></tr>";
-      $('#forum-topic-head').html(addHead);
+      $('#forum_topic_head').html(addHead);
       var addHtml = "";
       $('#nav-forum').hide();
       $('.reply-post-button').hide();
@@ -45,6 +45,7 @@ function loadTopics(){
   });
 }
 
+// Redirect to forum threads
 $(document).on('click','#topic-title', function(){
   topic = $(this).text();
   sessionStorage.setItem('topic', topic);
@@ -52,13 +53,13 @@ $(document).on('click','#topic-title', function(){
   loadThread();
 });
 
+// Redirect to forum posts
 $(document).on('click','#thread-title', function(){
   thread = $(this).text();
   sessionStorage.setItem('thread', thread);
   window.location.assign('/findkita/view/forum_post.html.php');
   loadPosts();
 });
-
 
 function getPaging(){
   dataTable = $('table').DataTable({

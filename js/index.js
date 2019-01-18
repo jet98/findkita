@@ -8,10 +8,22 @@ $(function(){
     type: 'POST',
     contentType: 'application/json',
     success: function(json){
+      var jsonObj = JSON.stringify(json);
       if(json[0].removed == 0){
         $('#home-login-buttons').hide();
         $('#home-logout-button').show();
         $('#user-home-link').show();
+      }
+
+      if(jsonObj.length == 0){
+        $('.create-thread-button').hide();
+        $('.reply-post-button').hide();
+        $('#post-reply').hide();
+      }
+      else{
+        $('.create-thread-button').show();
+        $('.reply-post-button').show();
+        $('#post-reply').show();
       }
     },
     error: function(request, status, error) {

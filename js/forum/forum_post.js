@@ -1,7 +1,7 @@
 var dataTable = $('table').DataTable();
 
 $(function(){
-  $('.reply-post-button').show();
+  // $('.reply-post-button').show();
 });
 
 function loadPosts(threadTitle){
@@ -22,14 +22,13 @@ function loadPosts(threadTitle){
       // }
       // else{
         dataTable.destroy();
-        $('.create-thread-button').hide();
-        $('.reply-post-button').show();
+        // $('.reply-post-button').show();
         $('#nav-forum').hide();
         $('#nav-forum-text').html("<< Threads");
       // }
 
       var addHead = "<tr><th id=\"forum-post-author\">Author</th><th id=\"forum-post-post-title\">Posts</th><th id=\"forum-post-reply\">Reply</th></tr>";
-      $('#forum-topic-head').html(addHead);
+      $('#forum_topic_head').html(addHead);
       var addHtml = "";
       for(var i = 0; i < json.length; i++){
         addHtml += "<tr>" +
