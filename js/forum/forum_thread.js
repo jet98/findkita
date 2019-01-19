@@ -15,17 +15,9 @@ function loadThread(){
       'topicTitle': topicTitle
     },
     success: function(json){
-      // //If there is no user logged in
-      // if(json[0] === undefined){
-      //   alert("Please log in to add a thread");
-      //   $('.create-thread-button').hide();
-      // }
-      // else{
-        dataTable.destroy();
-        // $('.create-thread-button').show();
-        $('#nav-forum').hide();
-        $('#nav-forum-text').html("<< Topics");
-      // }
+      dataTable.destroy();
+      $('#nav-forum').hide();
+      $('#nav-forum-text').html("<< Topics");
 
       var addHead = "<tr><th id=\"thread-title-head\">Thread</th><th>Replies</th></tr>";
       $('#forum_topic_head').html(addHead);

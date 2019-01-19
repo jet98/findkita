@@ -76,6 +76,7 @@ a:hover{
 
 .login-btn, .register-btn{
 	width: 10em;
+	margin-top: 2px;
 }
 
 .list-group-item{

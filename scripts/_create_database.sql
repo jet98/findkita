@@ -14,6 +14,9 @@ CREATE TABLE users(
   about_me varchar(500) DEFAULT "About me...",
   FOREIGN KEY (avatar_id) REFERENCES avatar(avatar_id)
 );
+-- set default user for non user
+INSERT INTO users(user_id, f_name, l_name, email, password, username)
+VALUES(1, "User", "Guest", "myemail@yahoo.com", "guest", "Guest");
 
 CREATE TABLE avatar(
   avatar_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,

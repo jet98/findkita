@@ -9,21 +9,22 @@ $(function(){
     contentType: 'application/json',
     success: function(json){
       var jsonObj = JSON.stringify(json);
-      if(json[0].removed == 0){
-        $('#home-login-buttons').hide();
-        $('#home-logout-button').show();
-        $('#user-home-link').show();
-      }
-
-      if(jsonObj.length == 0){
+      console.log(jsonObj.length);
+      console.log(json[0]);
+      // Default user size
+      if(jsonObj.length == "2"){
         $('.create-thread-button').hide();
         $('.reply-post-button').hide();
-        $('#post-reply').hide();
       }
       else{
         $('.create-thread-button').show();
         $('.reply-post-button').show();
-        $('#post-reply').show();
+      }
+
+      if(json[0].removed == 0){
+        $('#home-login-buttons').hide();
+        $('#home-logout-button').show();
+        $('#user-home-link').show();
       }
     },
     error: function(request, status, error) {

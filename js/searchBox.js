@@ -2,6 +2,9 @@ var keyboard = "";
 var dataTable = $('table').DataTable();
 
 $(function(){
+  // Remove later
+  $('.search').hide();
+  $('#search').hide();
   // send the user input from the search box to ajax
   $('.search').click(function(){
     keyword = $('#search').val();
