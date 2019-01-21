@@ -92,9 +92,6 @@
 				<h1>Share Your Ideas</h1>
 				<h4>If you're having trouble finding the perfect gift, be part of the community and let others help you, or give advice and find what you need.</h4>
 			</div>
-			<div class="reply-post-button">
-				<button class="btn btn-secondary" data-toggle="modal" data-target="#replyPost" type="submit">Reply</button>
-			</div>
 			<div id="nav-forum">
 				<span onmouseover="" id="nav-forum-text"></span>
 			</div>
@@ -104,6 +101,9 @@
 				<tbody id="forum_topic_body">
 				</tbody>
 			</table>
+			<div class="reply-post-button">
+				<button class="btn btn-secondary" data-toggle="modal" data-target="#replyPost" type="submit">Reply</button>
+			</div>
 		</div>
 		<!-- Place add here
 		<div>

@@ -37,15 +37,19 @@ td{
 
 #forum-post-author{
   text-align: center;
-  width: 150px;
+  width: 15%;
 }
 
 #forum-post-date{
   font-size: 12px;
 }
 
+#forum-post-post-title{
+
+}
+
 #forum-post-reply{
-  width: 50px;
+  width: 10%;
 }
 
 #search-topic-value{

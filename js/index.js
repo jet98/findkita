@@ -3,6 +3,14 @@ $(function(){
   $('.register-submit-button').click(registerUser);
   $('#home-logout-button').click(logoutUser);
   $('#main_body').show();
+
+  if($('#nav_user_home').text() == "Username not set"){
+    $('#nav_user_home').hide();
+  }
+  else{
+    $('#nav_user_home').show();
+  }
+
   $.ajax({
     url: '../php/index.php?cmd=currentSession',
     type: 'POST',

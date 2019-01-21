@@ -18,7 +18,7 @@ function loadPosts(threadTitle){
       $('#nav-forum').hide();
       $('#nav-forum-text').html("<< Threads");
 
-      var addHead = "<tr><th id=\"forum-post-author\">Author</th><th id=\"forum-post-post-title\">Posts</th><th id=\"forum-post-reply\">Reply</th></tr>";
+      var addHead = "<tr><th id=\"forum-post-author\">Author</th><th id=\"forum-post-post-title\">Posts</th><th id=\"forum-post-reply\"></th></tr>";
       $('#forum_topic_head').html(addHead);
       var addHtml = "";
       for(var i = 0; i < json.length; i++){
@@ -31,7 +31,7 @@ function loadPosts(threadTitle){
           "<td><p><i style=\"margin-left: 5%; color: grey;\">" + json[i].quote + "</i></p><span id=\"forum-post-post\">" + json[i].post + "</span></td>" +
           "<td id=\"forum-post-reply\">" +
             "<div class=\"create-post-button\">" +
-              "<span id=\"post-reply\" data-toggle=\"modal\" data-target=\"#quotePost\" type=\"submit\" onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"\" title=\"Quote Post\">&#10226</span>" +
+              "<button class=\"btn\" id=\"post-reply\" data-toggle=\"modal\" data-target=\"#quotePost\" type=\"submit\" style=\"cursor: pointer;\" title=\"Quote Post\">Quote + Reply</button>" +
             "</div>" +
           "</td>" +
         "</tr>";

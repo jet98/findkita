@@ -30,6 +30,7 @@
     $username = getValue('username');
     $email = getValue('email');
     $password = getValue('password');
+    $password = md5($password);
     $response = registerUser($firstname, $lastname, $username, $email, $password);
     echo json_encode($response);
   }

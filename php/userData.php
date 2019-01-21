@@ -6,7 +6,7 @@ function username(){
     return ucfirst($_SESSION['user'][0]['username']);
   }
   else{
-    return "user name not set";
+    return "Username not set";
   }
 }
 
