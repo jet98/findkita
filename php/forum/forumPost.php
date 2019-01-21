@@ -48,6 +48,7 @@
     while ($row = $res->fetch_assoc()){
       $response[] = $row;
     }
+
     $stmt->close();
 
     return $response;

@@ -1,7 +1,7 @@
 var dataTable = $('table').DataTable();
 
 $(function(){
-  // $('.reply-post-button').show();
+  $('#post-reply').css('visibility', 'visible');
 });
 
 function loadPosts(threadTitle){
@@ -14,6 +14,8 @@ function loadPosts(threadTitle){
       'threadTitle': threadTitle
     },
     success: function(json){
+      console.log(json);
+      
       dataTable.destroy();
       $('#nav-forum').hide();
       $('#nav-forum-text').html("<< Threads");
