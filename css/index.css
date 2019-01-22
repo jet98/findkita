@@ -19,6 +19,10 @@ a:hover{
 		float: left;
 }
 
+#navimage{
+	margin-top: -3%;
+}
+
 #home-logout-button, #user-home-link{
 	display: none;
 }

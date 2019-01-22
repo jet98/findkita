@@ -1,7 +1,23 @@
 var dataTable = $('table').DataTable();
 
 $(function(){
-  $('#post-reply').css('visibility', 'visible');
+  $.ajax({
+    url: '../php/forum/forumPost.php?cmd=currentUser',
+    type: 'POST',
+    contentType: 'application/json',
+    success: function(json){
+      console.log(json);
+      if(json.current_user == "non user"){
+        $('#post-reply').css('visibility', 'hidden');
+      }
+      else{
+        $('#post-reply').css('visibility', 'visible');
+      }
+    },
+    error: function(request, status, error) {
+      console.log("error " + request.responseText);
+    }
+  });
 });
 
 function loadPosts(threadTitle){
@@ -15,7 +31,7 @@ function loadPosts(threadTitle){
     },
     success: function(json){
       console.log(json);
-      
+
       dataTable.destroy();
       $('#nav-forum').hide();
       $('#nav-forum-text').html("<< Threads");

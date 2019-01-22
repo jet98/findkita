@@ -16,10 +16,9 @@ $(function(){
     type: 'POST',
     contentType: 'application/json',
     success: function(json){
-      var jsonObj = JSON.stringify(json);
-      console.log(jsonObj.length);
-      console.log(json[0]);
       // Default user size
+      var jsonObj = JSON.stringify(json);
+      
       if(jsonObj.length == "2"){
         $('.create-thread-button').hide();
         $('.reply-post-button').hide();

@@ -24,7 +24,7 @@
 <body>
 	<!-- top nav bar -->
 	<div class="navbar navbar-full" id="header">
-		<a class="navbar-brand" href="index.html.php"><img src="../images/navtitle.png" /></a>
+		<a class="navbar-brand" href="index.html.php"><img id="navimage" src="../images/giftmyideaxcf.png" /></a>
 		<ul class="nav navbar-nav">
 			<li class="nav-item active">
 				<a class="nav-link" id="nav_user_home" href="user_home.html.php"><?php include_once '../php/userdata.php'; echo username(); ?></a>
@@ -119,7 +119,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Contact <img src="../images/navtitle.png" /></h4>
+						<h4 class="modal-title">Contact <img src="../images/giftmyideaxcf.png" /></h4>
 					</div>
 					<form class="modal-body user-modal" method="post" enctype="text/plain">
 						<label>Name</label>

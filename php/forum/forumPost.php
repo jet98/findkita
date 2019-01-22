@@ -35,6 +35,10 @@
     quoteReply($post, $quote, $thread);
     echo json_encode($thread);
   }
+  elseif($cmd == 'currentUser'){
+    $isNonUser = currentUser();
+    echo json_encode($isNonUser);
+  }
 
   function loadPosts($thread){
     global $mysqli;
@@ -108,5 +112,22 @@
 
     return $response;
   }
+
+  function currentUser(){
+    $response[] = array('current_user');
+    if(isset($_SESSION['user'][0]['username'])){
+      $response['current_user'] = $_SESSION['user'][0]['username'];
+    }
+    else{
+      $response['current_user'] = "non user";
+    }
+
+    return $response;
+  }
+
+  function isAdmin(){
+
+  }
+
   $mysqli->close();
 ?>
