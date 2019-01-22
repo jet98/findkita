@@ -12,11 +12,16 @@ CREATE TABLE users(
   username varchar(50) NOT NULL UNIQUE,
   removed boolean DEFAULT false,
   about_me varchar(500) DEFAULT "About me...",
+  is_admin boolean DEFAULT false,
   FOREIGN KEY (avatar_id) REFERENCES avatar(avatar_id)
 );
 -- set default user for non user
-INSERT INTO users(user_id, f_name, l_name, email, password, username)
-VALUES(1, "User", "Guest", "myemail@yahoo.com", "guest", "Guest");
+INSERT INTO users(f_name, l_name, email, password, username)
+VALUES("Guest", "USER", "myemail@here.com", "guest", "Guest");
+
+-- set default isAdmin
+INSERT INTO users(f_name, l_name, email, password, username, is_admin)
+values("Admin", "User", "myemail@here.com", "admin", "Psyren99", true);
 
 CREATE TABLE avatar(
   avatar_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -28,47 +33,47 @@ CREATE TABLE avatar(
 INSERT INTO avatar(avatar_link, avatar_img)
 VALUES("defaultprofilepicture.png", "");
 
-CREATE TABLE questions(
-  question_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  question varchar(500),
-  type varchar(10)
-);
+-- CREATE TABLE questions(
+--   question_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   question varchar(500),
+--   type varchar(10)
+-- );
 
-CREATE TABLE user_questions(
-  user_questions_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  user_id int,
-  FOREIGN KEY (user_id) REFERENCES users(user_id),
-  questions_id int,
-  FOREIGN KEY (questions_id) REFERENCES questions(questions_id),
-  answers_id int,
-  FOREIGN KEY (answers_id) REFERENCES answers(answers_id),
-  points int
-);
+-- CREATE TABLE user_questions(
+--   user_questions_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   user_id int,
+--   FOREIGN KEY (user_id) REFERENCES users(user_id),
+--   questions_id int,
+--   FOREIGN KEY (questions_id) REFERENCES questions(questions_id),
+--   answers_id int,
+--   FOREIGN KEY (answers_id) REFERENCES answers(answers_id),
+--   points int
+-- );
 
-CREATE TABLE gift_finder(
-  gift_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  answerA_id int,
-  answerB_id int,
-  answerC_id int,
-  FOREIGN KEY (answerA_id) REFERENCES profile_answers(answer_id),
-  FOREIGN KEY (answerB_id) REFERENCES profile_answers(answer_id),
-  FOREIGN KEY (answerC_id) REFERENCES profile_answers(answer_id),
-  keyword varchar(25)
-);
+-- CREATE TABLE gift_finder(
+--   gift_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   answerA_id int,
+--   answerB_id int,
+--   answerC_id int,
+--   FOREIGN KEY (answerA_id) REFERENCES profile_answers(answer_id),
+--   FOREIGN KEY (answerB_id) REFERENCES profile_answers(answer_id),
+--   FOREIGN KEY (answerC_id) REFERENCES profile_answers(answer_id),
+--   keyword varchar(25)
+-- );
 
-CREATE TABLE user_answers(
-  answers_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  question_id int,
-  listed_answer varchar(500),
-  FOREIGN KEY (question_id) REFERENCES questions(question_id)
-);
+-- CREATE TABLE user_answers(
+--   answers_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   question_id int,
+--   listed_answer varchar(500),
+--   FOREIGN KEY (question_id) REFERENCES questions(question_id)
+-- );
 
-CREATE TABLE profile_answers(
-  answers_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  question_id int,
-  listed_answer varchar(500),
-  FOREIGN KEY (question_id) REFERENCES questions(question_id)
-);
+-- CREATE TABLE profile_answers(
+--   answers_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   question_id int,
+--   listed_answer varchar(500),
+--   FOREIGN KEY (question_id) REFERENCES questions(question_id)
+-- );
 
 CREATE TABLE forum_topics(
   topic_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -97,6 +102,7 @@ CREATE TABLE forum_posts(
   post varchar(8000),
   quote varchar(8000) DEFAULT "",
   post_date datetime,
+  curr_user varchar(255),
   FOREIGN KEY (parent_id) REFERENCES forum_thread(thread_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id),
   FOREIGN KEY (avatar_id) REFERENCES avatar(avatar_id)

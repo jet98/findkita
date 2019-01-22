@@ -114,13 +114,21 @@
   }
 
   function currentUser(){
-    $response[] = array('current_user');
-    if(isset($_SESSION['user'][0]['username'])){
-      $response['current_user'] = $_SESSION['user'][0]['username'];
+    $current_user = $_SESSION['user'][0]['user_id'];
+    
+    global $mysqli;
+    $response = array();
+    $query = 'SELECT * FROM forum_posts WHERE curr_user = ?';
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
+    $stmt->bind_param('s', $thread);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    while ($row = $res->fetch_assoc()){
+      $response[] = $row;
     }
-    else{
-      $response['current_user'] = "non user";
-    }
+
+    $stmt->close();
 
     return $response;
   }
