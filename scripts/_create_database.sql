@@ -20,8 +20,8 @@ INSERT INTO users(f_name, l_name, email, password, username)
 VALUES("Guest", "USER", "myemail@here.com", "guest", "Guest");
 
 -- set default isAdmin
-INSERT INTO users(f_name, l_name, email, password, username, is_admin)
-values("Admin", "User", "myemail@here.com", "admin", "Psyren99", true);
+INSERT INTO users(f_name, l_name, email, password, username, removed, is_admin)
+values("Admin", "User", "myemail@here.com", "admin", "Psyren99", true, true);
 
 CREATE TABLE avatar(
   avatar_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -102,7 +102,6 @@ CREATE TABLE forum_posts(
   post varchar(8000),
   quote varchar(8000) DEFAULT "",
   post_date datetime,
-  curr_user varchar(255),
   FOREIGN KEY (parent_id) REFERENCES forum_thread(thread_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id),
   FOREIGN KEY (avatar_id) REFERENCES avatar(avatar_id)

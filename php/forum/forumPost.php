@@ -59,8 +59,6 @@
   }
 
   function postReply($post, $thread){
-    $current_user = $_SESSION['user'][0]['username'];
-
     global $mysqli;
     if($_SESSION['user'][0]['user_id'] != NULL){
       $user = $_SESSION['user'][0]['user_id'];
@@ -71,18 +69,16 @@
         $avatar = 1;
       }
       $thread_id = getParent($thread);
-      $query = 'INSERT INTO forum_posts(parent_id, user_id, avatar_id, post, post_date, curr_user) VALUES(?, ?, ?, ?, NOW(), ?)';
+      $query = 'INSERT INTO forum_posts(parent_id, user_id, avatar_id, post, post_date) VALUES(?, ?, ?, ?, NOW())';
       $stmt = $mysqli->stmt_init();
       $stmt->prepare($query) or die(mysqli_error($mysqli));
-      $stmt->bind_param('dddss', $thread_id['thread_id'], $user, $avatar, $post, $current_user);
+      $stmt->bind_param('ddds', $thread_id['thread_id'], $user, $avatar, $post);
       $stmt->execute();
       $stmt->close();
     }
   }
 
   function quoteReply($post, $quote, $thread){
-    $current_user = $_SESSION['user'][0]['username'];
-
     global $mysqli;
     if($_SESSION['user'][0]['user_id'] != NULL){
       $user = $_SESSION['user'][0]['user_id'];
@@ -93,10 +89,10 @@
         $avatar = 1;
       }
       $thread_id = getParent($thread);
-      $query = 'INSERT INTO forum_posts(parent_id, user_id, avatar_id, post, post_date, quote, curr_user) VALUES(?, ?, ?, ?, NOW(), ?, ?)';
+      $query = 'INSERT INTO forum_posts(parent_id, user_id, avatar_id, post, post_date, quote) VALUES(?, ?, ?, ?, NOW(), ?)';
       $stmt = $mysqli->stmt_init();
       $stmt->prepare($query) or die(mysqli_error($mysqli));
-      $stmt->bind_param('dddsss', $thread_id['thread_id'], $user, $avatar, $post, $quote, $current_user);
+      $stmt->bind_param('dddss', $thread_id['thread_id'], $user, $avatar, $post, $quote);
       $stmt->execute();
       $stmt->close();
     }
@@ -118,27 +114,18 @@
   }
 
   function currentUser(){
-    $current_user = $_SESSION['user'][0]['username'];
-
-    global $mysqli;
-    $response = array();
-    $query = 'SELECT * FROM forum_posts WHERE curr_user = ?';
-    $stmt = $mysqli->stmt_init();
-    $stmt->prepare($query) or die(mysqli_error($mysqli));
-    $stmt->bind_param('s', $current_user);
-    $stmt->execute();
-    $res = $stmt->get_result();
-    while ($row = $res->fetch_assoc()){
-      $response[] = $row;
-    }
-
-    $stmt->close();
-
-    return $response;
+    // May not need this, grab the current session and check removed.
+    // If false hide buttons for user post/reply
   }
 
   function isAdmin(){
+    // Check if is_admin in users table is set to true,
+    // if so, send boolean back and add deletion buttons
+  }
 
+  function deletePost(){
+    // Create query to remove posts, should only be accessible by admin users
+    // add initial check for is_admin in users table is set to true
   }
 
   $mysqli->close();
