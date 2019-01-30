@@ -16,18 +16,6 @@ $(function(){
     type: 'POST',
     contentType: 'application/json',
     success: function(json){
-      // Default user size
-      var jsonObj = JSON.stringify(json);
-      
-      if(jsonObj.length == "2"){
-        $('.create-thread-button').hide();
-        $('.reply-post-button').hide();
-      }
-      else{
-        $('.create-thread-button').show();
-        $('.reply-post-button').show();
-      }
-
       if(json[0].removed == 0){
         $('#home-login-buttons').hide();
         $('#home-logout-button').show();

@@ -20,6 +20,7 @@
 	<script type="text/javascript" src="../js/forum/forum_thread.js"></script>
 	<script type="text/javascript" src="../js/searchBox.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
+	<script type="text/javascript" src="../js/admin.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -82,6 +83,25 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						<button type="button" class="btn btn-secondary quote-post-submit-button" data-dismiss="modal">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- delete post modal -->
+		<div id="deletePost" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Delete Post</h4>
+					</div>
+					<div class="modal-body user-modal">
+						<h4>Are you sure you want to delete this post?</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary delete-post-submit-button" data-dismiss="modal">Delete</button>
 					</div>
 				</div>
 			</div>
