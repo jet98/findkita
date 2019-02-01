@@ -79,6 +79,11 @@
       $stmt->execute();
       $res = $stmt->get_result();
       $stmt->close();
+    }
+
+    // Check if user was Created
+    $query = mysqli_query($mysqli, 'SELECT * FROM users WHERE username = "$username" AND email = "$email"');
+    if($query->num_rows == 1){
       $login = loginUser($username, $password);
       $rtn = true;
     }

@@ -15,11 +15,8 @@
 	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/keypress/2.1.5/keypress.min.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
-	<script type="text/javascript" src="../js/forum/forum_thread.js"></script>
-  <script type="text/javascript" src="../js/forum/forum_home.js"></script>
-	<script type="text/javascript" src="../js/forum/forum_Post.js"></script>
 	<script type="text/javascript" src="../js/searchBox.js"></script>
-	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
+	<script type="text/javascript" src="../js/admin.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->
@@ -32,6 +29,9 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="index.html.php">Topics</a>
 			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="forum_thread.html.php">Thread</a>
+			</li>
 		</ul>
 		<form class="form-inline pull-xs-right" id="search_div">
 			<input class="form-control" id="search" type="text" placeholder="Search">
@@ -43,71 +43,43 @@
 	</div>
 	<!-- main body -->
 	<div class="container" id="main_body">
-		<!-- create thread modal -->
-		<div id="createThread" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Create Thread</h4>
-					</div>
-					<div class="modal-body user-modal">
-						<label>Title</label>
-						<input class="form-control" type="text" id="create_thread_title" placeholder="Enter Title" /></br>
-						<label>Post</label>
-						<textarea class="form-control" rows="3" id="create_thread_post" placeholder="Enter Post"></textarea>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-secondary create-thread-submit-button" data-dismiss="modal">Submit</button>
-					</div>
+    <!-- user profile -->
+		<div class="well" id="users_profile">
+			<div class="container" id="full_width">
+				<div class="text-center" id="users_profile_image">
+					<h3 id="username">
+						<?php include_once '../php/userdata.php'; echo getUser(); ?>
+					</h3>
+					<img src="<?php include_once '../php/userData.php'; echo getUserAvatar(); ?>" id="edit-profile-picture" /></br>
+				</div>
+				<div id="profile_info">
+					<?php include_once '../php/userData.php'; echo getUserAboutMe(); ?>
 				</div>
 			</div>
 		</div>
-		<!-- delete thread modal -->
-		<div id="deleteThread" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Delete Thread</h4>
-					</div>
-					<div class="modal-body user-modal">
-						<h4>Are you sure you want to delete this thread?</h4>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-secondary delete-thread-submit-button" data-dismiss="modal">Delete</button>
-					</div>
+		<!-- user activity -->
+		<div class="well" id="users_profile">
+			<div class="container" id="full_width">
+				<h3 id="username"><?php include_once '../php/userdata.php'; echo getUser(); ?><span>'s Activity</span></h3>
+				<div id="users_profile_info">
+					<!-- post -->
+					<table class="table well" id="table_well">
+						<thead>
+							<tr>
+								<th id="user-table-post">Latest Post</th>
+								<th id="user-table-comment">Comment</th>
+								<th id="user-table-date">Date</th>
+							</tr>
+						</thead>
+					</table>
 				</div>
 			</div>
-		</div>
-		<!-- topics list -->
-		<div class="container forum-topics">
-			<div class="container">
-				<h1>Share Your Ideas</h1>
-				<h4>If you're having trouble finding the perfect gift, be part of the community and let others help you, or give advice and find what you need.</h4>
-			</div>
-			<div class="create-thread-button">
-				<button class="btn btn-secondary" data-toggle="modal" data-target="#createThread" type="submit">Create Thread</button>
-			</div>
-			<div id="nav-forum">
-				<span onmouseover="" id="nav-forum-text"></span>
-			</div>
-			<table class="table" id="forum-topic-table">
-				<thead id="forum_topic_head">
-				</thead>
-				<tbody id="forum_topic_body">
-				</tbody>
-			</table>
 		</div>
 		<!-- Place add here
 		<div>
 		</div>
 		-->
-	</div>
+  </div>
 	<!-- footer -->
 	<div class="footer">
 		<!-- Footer Modal -->
@@ -136,7 +108,7 @@
 				</div>
 			</div>
 		</div>
-		<h5><span onmouseover="" style="color:#FF0000; cursor:pointer;" data-toggle="modal" data-target="#footerModal" id="footer-contacts">Contact</span> Find Kita</h5>
+		<h5><span onmouseover="" style="color:#FF0000; cursor:pointer;" data-toggle="modal" data-target="#footerModal" id="footer-contacts">Contact</span> Finding Kita</h5>
 	</div>
 </body>
 </html>

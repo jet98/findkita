@@ -1,23 +1,7 @@
 var dataTable = $('table').DataTable();
 
 $(function(){
-  $.ajax({
-    url: '../php/forum/forumPost.php?cmd=currentUser',
-    type: 'GET',
-    contentType: 'application/json',
-    success: function(json){
-      // console.log(json);
-      // if(json == null){
-      //   $('#post-reply').css('visibility', 'hidden');
-      // }
-      // else{
-      //   $('#post-reply').css('visibility', 'visible');
-      // }
-    },
-    error: function(request, status, error) {
-      console.log("error " + request.responseText);
-    }
-  });
+
 });
 
 function loadPosts(threadTitle){
@@ -47,8 +31,8 @@ function loadPosts(threadTitle){
           for(var i = 0; i < json.length; i++){
             addHtml += "<tr>" +
               "<td id=\"forum-post-author\">" +
-                "<img src=\"../uploads/" + json[i].avatar_link + "\" id=\"forum-profile-picture\" />" +
-                "<h4 id=\"forum-post-username\">" + json[i].f_name + "</h4>" +
+                "<img src=\"../uploads/" + json[i].avatar_link + "\" id=\"forum-profile-picture\" onmouseover=\"\" style=\"cursor: pointer;\" />" +
+                "<h4 id=\"forum-post-username\" onmouseover=\"\" style=\"cursor: pointer;\">" + json[i].f_name + "</h4>" +
                 "<h4 id=\"forum-post-date\">" + json[i].post_date.substring(0, 10) + "</h4>" +
               "</td>" +
               "<td><p><i style=\"margin-left: 5%; color: grey;\">" + json[i].quote + "</i></p><span id=\"forum-post-post\">" + json[i].post + "</span></td>" +

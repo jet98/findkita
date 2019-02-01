@@ -10,11 +10,8 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/keypress/2.1.5/keypress.min.js"></script>
 	<script type="text/javascript" src="../js/user_edit.js"></script>
-	<script type="text/javascript" src="../js/questions.js"></script>
-	<script type="text/javascript" src="../js/userSavedQuestions.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
 	<script type="text/javascript" src="../js/upload.js"></script>
-	<script type="text/javascript" src="../js/amazon/get_Items.js"></script>
 	<script type="text/javascript" src="../js/searchBox.js"></script>
 </head>
 <body>

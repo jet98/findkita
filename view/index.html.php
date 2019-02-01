@@ -21,7 +21,7 @@
 	<script type="text/javascript" src="../js/searchBox.js"></script>
 	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
 </head>
-<body>
+<body id="body">
 	<!-- top nav bar -->
 	<div class="navbar navbar-full" id="header">
 		<a class="navbar-brand" href="index.html.php"><img id="navimage" src="../images/giftmyideaxcf.png" /></a>
@@ -70,7 +70,7 @@
 					</div>
 				</form>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-default register-close-button" data-dismiss="modal">Close</button>
 					<button type="button" class="btn btn-secondary register-submit-button" type="submit" data-dismiss="modal">Submit</button>
 				</div>
 			</div>

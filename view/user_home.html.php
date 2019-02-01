@@ -54,7 +54,7 @@
 		<!-- user activity -->
 		<div class="well" id="users_profile">
 			<div class="container" id="full_width">
-				<h3 id="username">Username<span>'s Activity</span></h3>
+				<h3 id="username"><?php include_once '../php/userdata.php'; echo username(); ?><span>'s Activity</span></h3>
 				<div id="users_profile_info">
 					<!-- post -->
 					<table class="table well" id="table_well">

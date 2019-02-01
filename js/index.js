@@ -76,8 +76,10 @@ function registerUser(){
       },
       success: function(json){
         if(!json){
-          $('.login_error').show();
-          $('.login_error').html("User already exists");
+          $('.close').click();
+          // $('.login_error').show();
+          // $('.login_error').html("User already exists");
+          alert("User already exists");
         }
         else{
           $('#home-login-buttons').hide();

@@ -22,6 +22,12 @@
     $response = deletePost($date, $post);
     echo json_encode($response);
   }
+  elseif($cmd = 'deleteThread'){
+    $replies = getValue('replies');
+    $title = getValue('title');
+    $response = deleteThread($replies, $title);
+    echo json_encode($response);
+  }
 
   function deletePost($date, $post){
     $response = false;
@@ -38,6 +44,28 @@
 
     // Check to see if post was deleted
     $query = mysqli_query($mysqli, 'SELECT * FROM forum_posts WHERE post_date = "$date" AND post = "$post"');
+    if($query->num_rows == 0){
+      $response = true;
+    }
+
+    return $response;
+  }
+
+  function deleteThread($replies, $title){
+    $response = false;
+
+    global $mysqli;
+    // Delete thread
+    $query = 'DELETE FROM forum_thread WHERE replies = ? AND thread_title = ? LIMIT 1';
+    $stmt = $mysqli->stmt_init();
+    $stmt->prepare($query) or die(mysqli_error($mysqli));
+    $stmt->bind_param('ss', $replies, $title);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $stmt->close();
+
+    // Check to see if thread was deleted
+    $query = mysqli_query($mysqli, 'SELECT * FROM forum_thread WHERE replies = "$replies" AND thread_title = "$post"');
     if($query->num_rows == 0){
       $response = true;
     }
