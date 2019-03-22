@@ -92,6 +92,7 @@
 					<input class="form-control password login-user" type="password" placeholder="Enter Password" />
 				</div>
 				<div class="modal-footer">
+					<a id="forgot_password" href="#" >forgot password?</a>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					<button type="button" class="btn btn-secondary login-submit-button" data-dismiss="modal">Submit</button>
 				</div>

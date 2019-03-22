@@ -9,8 +9,8 @@ function deletePost(){
     type: 'POST',
     contentType: 'application/json',
     data: {
-      'post': $('#forum-post-post').val(),
-      'date': $('#forum-post-date').val()
+      'post': $(document).on('click','#forum-post-post'),
+      'date': $(document).on('click','#forum-post-date')
     },
     success: function(json){
       if(json){

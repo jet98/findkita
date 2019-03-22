@@ -16,7 +16,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/keypress/2.1.5/keypress.min.js"></script>
 	<script type="text/javascript" src="../js/index.js"></script>
   <script type="text/javascript" src="../js/searchBox.js"></script>
-	<script type="text/javascript" src="../js/forum/forum_buttons.js"></script>
 </head>
 <body>
 	<!-- top nav bar -->

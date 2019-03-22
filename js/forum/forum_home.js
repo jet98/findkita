@@ -37,7 +37,14 @@ function loadTopics(){
                    "</tr>";
       }
       $('#forum_topic_body').html(addHtml);
-      getPaging();
+      // Force table to show all rows (set to 50) 
+      $('table').DataTable({
+        bPaginate: false,
+        bInfo: false,
+        bFilter: false,
+        bLengthChange: 50,
+        bSort: false
+      });
     },
     error: function(request, status, error) {
       console.log("error " + request.responseText);

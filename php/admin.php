@@ -30,6 +30,7 @@
   }
 
   function deletePost($date, $post){
+    print_r($date . " " . $post);
     $response = false;
 
     global $mysqli;

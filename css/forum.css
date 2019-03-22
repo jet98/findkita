@@ -2,7 +2,7 @@
   background-color: #F08080;
 }
 
-#topic-title, #thread-title{
+#topic-title, #thread-title, #search-thread{
   color: #FF0000;
   font-weight: bold;
 }
@@ -53,15 +53,16 @@ td{
 }
 
 #search-topic-value{
-
+  width: 10%;
 }
 
 #search-thread-value{
-
+  width: 20%;
+  margin-right: 10%;
 }
 
 #search-post-value{
-
+  width: 60%;
 }
 
 #nav-forum-text{
